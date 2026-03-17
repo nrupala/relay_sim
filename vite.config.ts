@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/relay_sim/',  // GitHub subdir
-  build: { outDir: 'dist' }
+  base: '/relay_sim/',  // GitHub Pages subpath
+  build: { 
+    outDir: 'dist',
+    sourcemap: false
+  }
 })
