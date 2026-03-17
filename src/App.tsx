@@ -34,7 +34,8 @@ export default function App() {
           <details style={{marginTop: 20}}>
             <summary style={{cursor: 'pointer', color: '#4a5568'}}>⚙️ Formulas Used (IEEE C37.90)</summary>
             <div style={{fontSize: 14, lineHeight: 1.5, marginTop: 10}}>
-              • 51: \( t = \frac{0.14}{PSM^(0.02)-1} \)s (IEC VI curve)<br/>
+              • 51: • 51: <var>t</var> = 0.14 / (<var>PSM</var><sup>0.02</sup> - 1) s (IEC VI curve)<br/>
+		//51: \( t = \frac{0.14}{PSM^(0.02)-1} \)s (IEC VI curve)<br/>
               • 50: Instantaneous I &gt; 1.5pu<br/>
               • 87: \( |I_a - I_b| &gt; 0.2(I_a + I_b) \) (Mason bias)
             </div>
