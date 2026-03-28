@@ -1,138 +1,155 @@
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import { RelaySim } from './lib/RelaySim';
 import { FAULT_REGISTRY } from './lib/faultRegistry';
-import type { FaultTypeCode } from './lib/faultRegistry';
+import { EquipmentView } from './components/EquipmentView';
+import { ControlPanel } from './components/ControlPanel';
+import { HelpSection } from './components/HelpSection';
+import { SequencePhasor } from './components/SequencePhasor';
+
+// --- IEEE 242 / GE PROTECTION STANDARDS ---
+const EQUIPMENT_TYPES = {
+  MOTOR: { id: 'motor', label: 'Industrial Motor', relays: ['46', '49', '50', '51', '66'], nominalV: 4.16 },
+  TRANSFORMER: { id: 'transformer', label: 'Power Transformer', relays: ['87T', '51', '24', '63'], nominalV: 13.8 },
+  BUS: { id: 'bus', label: 'Main Busbar', relays: ['87B', '50', '51G'], nominalV: 13.8 },
+  LINE: { id: 'line', label: 'Transmission Line', relays: ['21', '67', '79', '50/51'], nominalV: 115 }
+};
 
 export default function App() {
+  const [activeTab, setActiveTab] = useState<'motor' | 'transformer' | 'bus' | 'line'>('motor');
+  const [showHelp, setShowHelp] = useState(false);
   const [fault, setFault] = useState({
-    type: '51' as FaultTypeCode,
-    Iabc: [1.20, 1.00, 1.00],
-    Iang: [0, -120, 120],
+    type: '51',
+    Iabc: [1.2, 1.0, 1.0],
+    Iang: [0, -120, 120]
   });
 
-  const sim = new RelaySim();
+  // --- CORE ENGINE ---
+  const sim = useMemo(() => new RelaySim(), []);
   const result = sim.run(fault as any);
-  const activeFault = FAULT_REGISTRY[fault.type];
-
-  // Logic to handle "Animation" states
   const isTripped = result?.trip;
+  const config = EQUIPMENT_TYPES[activeTab.toUpperCase() as keyof typeof EQUIPMENT_TYPES];
+
+  // --- TELEMETRY ---
+    const avgI = fault.Iabc.reduce((a, b) => a + b, 0) / 3;
+  const powerFactor = 0.85;
+  const MW = isTripped ? 0 : (Math.sqrt(3) * config.nominalV * avgI * powerFactor).toFixed(2);
+ // Symmetrical compnents
+// --- SYMMETRICAL COMPONENTS (The "Invisible" Physics) ---
+  const i1 = avgI; // Positive Sequence (Balanced Load)
+  const i2 = (Math.max(...fault.Iabc) - Math.min(...fault.Iabc)) / 2; // Negative Sequence (Unbalance/Heat)
+  const i0 = Math.abs(fault.Iabc[0] + fault.Iabc[1] + fault.Iabc[2] - 3) / 3; // Zero Sequence (Ground)
+
 
   return (
-    <div style={{ padding: '30px', maxWidth: '1200px', margin: '0 auto', fontFamily: 'system-ui', backgroundColor: '#fdfdfd' }}>
+    <div style={{ 
+      display: 'grid', 
+      gridTemplateColumns: '1fr 380px', 
+      height: '100vh', 
+      backgroundColor: '#f7fafc',
+      fontFamily: 'system-ui, sans-serif' 
+    }}>
+      
+      {/* LEFT COLUMN: VISUAL LAB */}
+      <div style={{ display: 'flex', flexDirection: 'column', padding: '25px', gap: '20px', overflow: 'hidden' }}>
+        
+        <nav style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+          {Object.values(EQUIPMENT_TYPES).map((eq) => (
+            <button 
+              key={eq.id}
+              onClick={() => { setActiveTab(eq.id as any); setShowHelp(false); }}
+              style={{
+                padding: '10px 18px', borderRadius: '8px', cursor: 'pointer', border: 'none', fontWeight: 'bold',
+                backgroundColor: activeTab === eq.id && !showHelp ? '#3182ce' : '#edf2f7',
+                color: activeTab === eq.id && !showHelp ? '#fff' : '#4a5568'
+              }}
+            >
+              {eq.label}
+            </button>
+          ))}
+          <button 
+            onClick={() => setShowHelp(!showHelp)}
+            style={{
+              padding: '10px 18px', borderRadius: '8px', cursor: 'pointer', fontWeight: 'bold',
+              border: '2px solid #3182ce', backgroundColor: showHelp ? '#3182ce' : 'transparent',
+              color: showHelp ? '#fff' : '#3182ce', marginLeft: 'auto'
+            }}
+          >
+            {showHelp ? '✕ Close Help' : '📚 ANSI Docs'}
+          </button>
+        </nav>
 
-      {/* CSS ANIMATIONS - Injected via style tag for simplicity */}
-      <style>{`
-        @keyframes pulse-red {
-          0% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0.7); }
-          70% { box-shadow: 0 0 0 15px rgba(229, 62, 62, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(229, 62, 62, 0); }
-        }
-        .trip-alert {
-          animation: pulse-red 1.5s infinite;
-          border: 2px solid #e53e3e !important;
-        }
-      `}</style>
-
-      <header style={{ marginBottom: '30px', borderBottom: '2px solid #edf2f7', paddingBottom: '15px' }}>
-        <h1 style={{ margin: 0, color: '#1a365d' }}>🛡️ IEEE C37 Relay Simulator</h1>
-      </header>
-
-      <div style={{ display: 'grid', gridTemplateColumns: '440px 1fr', gap: '40px' }}>
-
-        {/* LEFT COLUMN: PHASOR & ANIMATED TRIP STATUS */}
-        <div>
-          <div style={{
-            background: isTripped ? '#2d0000' : '#1a202c',
-            padding: '25px', borderRadius: '20px', color: '#fff',
-            transition: 'background 0.3s ease',
-            position: 'relative'
-          }} className={isTripped ? 'trip-alert' : ''}>
-
-            <h3 style={{ marginTop: 0, fontSize: '14px', color: isTripped ? '#feb2b2' : '#a0aec0', textTransform: 'uppercase' }}>
-              {isTripped ? '🚨 FAULT DETECTED' : '📉 SYSTEM PHASORS'}
-            </h3>
-
-            <svg viewBox="-100 -100 200 200" style={{ width: '100%', height: '320px' }}>
-              <circle cx="0" cy="0" r="70" fill="none" stroke={isTripped ? '#63171b' : '#2d3748'} strokeDasharray="4" />
-              <line x1="-100" y1="0" x2="100" y2="0" stroke="#2d3748" />
-              <line x1="0" y1="-100" x2="0" y2="100" stroke="#2d3748" />
-
-              {fault.Iabc.map((mag, i) => {
-                const rad = (fault.Iang[i] * Math.PI) / 180;
-                const x = Math.cos(rad) * mag * 35;
-                const y = -Math.sin(rad) * mag * 35;
-                const colors = ['#f56565', '#4299e1', '#48bb78'];
-                return (
-                  <g key={i}>
-                    <line x1="0" y1="0" x2={x} y2={y} stroke={colors[i]} strokeWidth="3" strokeLinecap="round" />
-                    <text x={x + 5} y={y} fill={colors[i]} fontSize="12" fontWeight="bold">I{String.fromCharCode(65 + i)}</text>
-                  </g>
-                );
-              })}
-            </svg>
-          </div>
-
-          {/* FAULT MESSAGE PANEL */}
-          <div style={{
-            marginTop: '20px', padding: '20px', borderRadius: '15px',
-            background: isTripped ? '#fff5f5' : '#f0fff4',
-            border: `2px solid ${isTripped ? '#feb2b2' : '#c6f6d5'}`
-          }}>
-            <div style={{ fontSize: '28px', fontWeight: 'bold', color: isTripped ? '#c53030' : '#2f855a' }}>
-              {isTripped ? 'STATUS: TRIP' : 'STATUS: NORMAL'}
-            </div>
-
-            {isTripped ? (
-              <div style={{ marginTop: '10px' }}>
-                <p style={{ margin: 0, fontWeight: 'bold' }}>⚠️ Fault Detected: {activeFault.name}</p>
-                <p style={{ margin: '5px 0', fontSize: '14px' }}><strong>Logic:</strong> {activeFault.mathContext}</p>
-                <p style={{ margin: 0, fontSize: '14px', color: '#c53030' }}><strong>Clearing Time:</strong> {result.time.toFixed(3)} seconds</p>
-              </div>
-            ) : (
-              <p style={{ marginTop: '10px', fontSize: '14px' }}>Load current within acceptable pickup limits (1.50pu).</p>
-            )}
-          </div>
-        </div>
-
-        {/* RIGHT COLUMN: CONTROLS */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <section style={{ background: '#fff', padding: '20px', borderRadius: '15px', border: '1px solid #edf2f7' }}>
-            <h3 style={{ marginTop: 0 }}>🔧 Vector Injection</h3>
-            {fault.Iabc.map((mag, i) => (
-              <div key={i} style={{ marginBottom: '15px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '5px' }}>
-                  <span style={{ fontSize: '14px', fontWeight: 'bold' }}>Phase {String.fromCharCode(65 + i)}</span>
-                  <span style={{ color: '#3182ce', fontSize: '14px' }}>{mag.toFixed(2)}pu</span>
+        <div style={{ 
+          flex: 1, backgroundColor: '#fff', borderRadius: '16px', border: '1px solid #e2e8f0', 
+          padding: '30px', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)', overflowY: 'auto' 
+        }}>
+          {showHelp ? (
+            <HelpSection activeFaultCode={fault.type} />
+          ) : (
+            <div style={{ textAlign: 'center' }}>
+              <h2 style={{ color: '#1a365d', marginBottom: '20px' }}>{config.label} Protection Analysis</h2>
+              <EquipmentView type={activeTab} isTripped={isTripped} />
+              
+              {isTripped && (
+                <div style={{ marginTop: '25px', padding: '20px', backgroundColor: '#fff5f5', border: '2px solid #feb2b2', borderRadius: '12px' }}>
+                  <h3 style={{ margin: 0, color: '#c53030' }}>🚨 {fault.type} OPERATION</h3>
+                  <div style={{ marginTop: '15px', padding: '10px', background: '#fff', borderRadius: '8px', border: '1px solid #feb2b2', textAlign: 'left' }}>
+                    <div style={{ fontSize: '11px', color: '#718096', fontWeight: 'bold', marginBottom: '5px' }}>IEEE COORDINATION MATH:</div>
+                    <code style={{ fontSize: '13px', color: '#2d3748', display: 'block', lineHeight: '1.6' }}>
+                      {fault.type === '51' ? (
+                        <>
+                          Time = TD × [ (A / (M<sup>p</sup> - 1)) + B ] <br/>
+                          Time = 0.5 × [ (19.61 / ({(avgI/1.5).toFixed(2)}<sup>2</sup> - 1)) + 0.491 ] = <strong>{result.time.toFixed(3)}s</strong>
+                        </>
+                      ) : (
+                        <>Instantaneous Trip (Device 50) <br/> Time = 1 Cycle (0.016s) @ M &gt; 8.0</>
+                      )}
+                    </code>
+                  </div>
                 </div>
-                <input type="range" min="0" max="4" step="0.1" value={mag} style={{ width: '100%' }}
-                  onChange={(e) => {
-                    const next = [...fault.Iabc];
-                    next[i] = +e.target.value;
-                    setFault({ ...fault, Iabc: next });
-                  }} />
-              </div>
-            ))}
-          </section>
-
-          <section>
-            <h3 style={{ margin: '10px 0' }}>Relay Function (ANSI)</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '10px' }}>
-              {(Object.keys(FAULT_REGISTRY) as FaultTypeCode[]).map((code) => (
-                <button key={code} onClick={() => setFault({ ...fault, type: code })}
-                  style={{
-                    padding: '15px 10px', borderRadius: '8px', cursor: 'pointer',
-                    border: fault.type === code ? '2px solid #3182ce' : '1px solid #e2e8f0',
-                    background: fault.type === code ? '#ebf8ff' : '#fff',
-                    color: fault.type === code ? '#2b6cb0' : '#4a5568',
-                    fontWeight: 'bold'
-                  }}>
-                  {code}
-                </button>
-              ))}
+              )}
             </div>
-          </section>
+          )}
         </div>
       </div>
+
+      {/* RIGHT COLUMN: DASHBOARD & CONTROLS */}
+      <aside style={{ 
+        backgroundColor: '#fff', borderLeft: '1px solid #e2e8f0', padding: '25px',
+        display: 'flex', flexDirection: 'column', gap: '20px', overflowY: 'auto'
+      }}>
+
+
+        <div style={{ backgroundColor: '#1a202c', padding: '20px', borderRadius: '12px', color: '#63b3ed' }}>
+          <h4 style={{ color: '#a0aec0', fontSize: '11px', margin: '0 0 15px 0', textTransform: 'uppercase' }}>Telemetry (IEEE 242)</h4>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
+            <div>
+              <div style={{ fontSize: '10px', color: '#718096' }}>LOAD CURRENT</div>
+              <div style={{ fontSize: '18px', fontWeight: 'bold' }}>{avgI.toFixed(2)} pu</div>
+            </div>
+            <div>
+              <div style={{ fontSize: '10px', color: '#718096' }}>BUS VOLTAGE</div>
+              <div style={{ fontSize: '18px', fontWeight: 'bold' }}>{config.nominalV} kV</div>
+            </div>
+            <div style={{ gridColumn: 'span 2', paddingTop: '10px', borderTop: '1px solid #2d3748' }}>
+              <div style={{ fontSize: '10px', color: '#718096' }}>ACTIVE POWER</div>
+              <div style={{ fontSize: '22px', fontWeight: 'bold', color: isTripped ? '#f56565' : '#48bb78' }}>{MW} MW</div>
+            </div>
+	<div style={{ backgroundColor: '#1a202c', padding: '20px', borderRadius: '12px', color: '#63b3ed' }}>
+    {/* ... telemetry content ... */}
+  	</div>
+          </div>
+        </div>
+	 <SequencePhasor i1={i1} i2={i2} i0={i0} />
+        <ControlPanel 
+          availableRelays={config.relays}
+          currentFault={fault}
+          onUpdate={setFault}
+        />
+
+        <div style={{ marginTop: 'auto', fontSize: '11px', color: '#a0aec0', textAlign: 'center' }}>
+          RelaySim v3.0 • coordination Study
+        </div>
+      </aside>
     </div>
   );
 }

@@ -18,6 +18,24 @@ export interface SimResult {
   psm?: number;
 }
 
+// Calculation for Symmetrical Components
+export const calcSequences = (Iabc: number[], Iang: number[]) => {
+  // Convert polar to rectangular
+  const phases = Iabc.map((mag, i) => ({
+    re: mag * Math.cos(Iang[i] * Math.PI / 180),
+    im: mag * Math.sin(Iang[i] * Math.PI / 180)
+  }));
+
+  // Simplified "unbalance" approximation for students:
+  const avg = (phases[0].re + phases[1].re + phases[2].re) / 3;
+  const i2 = Math.abs(Iabc[0] - Iabc[1]) * 0.5; // Negative Sequence approximation
+  const i0 = Math.abs(Iabc[0] + Iabc[1] + Iabc[2]) / 3; // Zero Sequence approximation
+
+  return { i1: avg || 1.0, i2: i2, i0: i0 };
+};
+
+
+
 export class RelaySim {
   // IEEE C37.90 / IEC Standard Inverse Curve
   private idmt51(psm: number): number {
