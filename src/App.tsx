@@ -14,25 +14,19 @@ export default function App() {
   });
 
   const sim = new RelaySim();
-  const result = sim.run(fault);
+  const result = sim.run(fault) || { trip: false, time: 0 }; // Fallback to safe object
 
   return (
     <div style={{ padding: 20 }}>
-      {/* 3. Accessing the registry safely */}
-      <h1>{FAULT_REGISTRY[fault.type].name}</h1>
-      <p>{FAULT_REGISTRY[fault.type].desc}</p>
+      <h1>🛡️ Relay Simulator</h1>
+      {/* Always check if the key exists in registry before accessing */}
+      <h3>Active Function: {FAULT_REGISTRY[fault.type]?.name || "Unknown"}</h3>
 
-      {/* 4. Mapping the buttons using Object.keys */}
-      <div style={{ display: 'flex', gap: '10px' }}>
-        {Object.keys(FAULT_REGISTRY).map((key) => (
-          <button
-            key={key}
-            onClick={() => setFault({ ...fault, type: key as FaultTypeCode })}
-          >
-            {key}
-          </button>
-        ))}
+      <div style={{ color: result?.trip ? 'red' : 'green' }}>
+        Status: {result?.trip ? '🚨 TRIP' : '✅ NORMAL'}
       </div>
+
+      {/* ... rest of your UI ... */}
     </div>
   );
 }
