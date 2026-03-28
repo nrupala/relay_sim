@@ -11,17 +11,28 @@ export const HelpSection = () => {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: 20 }}>
                 {Object.values(FAULT_REGISTRY).map((f) => (
-                    <div key={f.code} style={{ background: '#fff', padding: 20, borderRadius: 12, border: '1px solid #e2e8f0', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-                            <span style={{ background: '#ebf8ff', color: '#3182ce', padding: '4px 8px', borderRadius: 4, fontWeight: 'bold', fontSize: 12 }}>
-                                {f.category}
-                            </span>
-                            <strong style={{ fontSize: 18 }}>{f.code}</strong>
+                    <div key={f.code} style={{
+                        background: '#fff',
+                        padding: '20px',
+                        borderRadius: '12px',
+                        border: '1px solid #e2e8f0',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        transition: 'transform 0.2s',
+                        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+                    }}>
+                        <div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
+                                <span style={{ color: '#3182ce', fontWeight: 'bold', fontSize: '12px', textTransform: 'uppercase' }}>{f.category}</span>
+                                <span style={{ color: '#718096', fontWeight: 'bold' }}>#{f.code}</span>
+                            </div>
+                            <h4 style={{ margin: '0 0 10px 0', color: '#1a202c', fontSize: '18px' }}>{f.name}</h4>
+                            <p style={{ fontSize: '14px', color: '#4a5568', margin: 0 }}>{f.explanation}</p>
                         </div>
-                        <h4 style={{ margin: '5px 0', color: '#1a202c' }}>{f.name}</h4>
-                        <p style={{ fontSize: 13, color: '#4a5568', lineHeight: 1.5 }}>{f.explanation}</p>
-                        <div style={{ marginTop: 15, fontSize: 12, color: '#718096', fontStyle: 'italic' }}>
-                            <strong>Ref:</strong> {f.source}
+
+                        <div style={{ marginTop: '15px', paddingTop: '10px', borderTop: '1px dashed #e2e8f0' }}>
+                            <code style={{ fontSize: '12px', color: '#805ad5' }}>{f.mathContext}</code>
                         </div>
                     </div>
                 ))}
