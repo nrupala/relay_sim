@@ -44,6 +44,26 @@ export class RelaySim {
     if (m < 1.2 * Zset) return 'Zone 2 (Delayed)';
     return 'Stable';
   }
+  /**
+  * Simulates a Motor Start Curve
+  * Current starts at 600% (LRC) and decays to 100% (FLA) over 'startSeconds'
+  */
+  getMotorCurrentAtTime(t: number, startSeconds: number = 5): number {
+    if (t > startSeconds) return 1.0; // Steady state
+    // Logarithmic decay from 6.0pu to 1.0pu
+    return 1 + 5 * Math.exp(-t / (startSeconds / 2));
+  }
+
+  /**
+  * ANSI 49 - Thermal Overload
+  * Returns "Heating %". 100% = Trip.
+  */
+  getThermalStrain(I: number, t: number): number {
+    // Simplified thermal model: I^2 * t
+    const strain = (Math.pow(I, 2) * t) / 40;
+    return Math.min(strain * 100, 110);
+  }
+
 
   public run(fault: Fault): SimResult {
     const Imax = Math.max(...fault.Iabc);
