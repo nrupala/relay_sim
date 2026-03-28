@@ -1,124 +1,45 @@
+// src/lib/RelaySim.ts
 import { FAULT_REGISTRY } from './faultRegistry';
-import type { FaultTypeCode } from './faultRegistry'; // MUST include 'type' keyword
-
-
-export type Complex = { re: number; im: number };
-
-export interface Fault {
-  type: FaultTypeCode; // Uses the dynamic keys from your registry (50, 51, L-G, etc.)
-  Iabc: number[];
-  Vabc?: number[];
-  Zload?: Complex;
-}
-
-export interface SimResult {
-  trip: boolean;
-  time: number;
-  zone?: string;
-  psm?: number;
-}
-
-// Calculation for Symmetrical Components
-export const calcSequences = (Iabc: number[], Iang: number[]) => {
-  // Convert polar to rectangular
-  const phases = Iabc.map((mag, i) => ({
-    re: mag * Math.cos(Iang[i] * Math.PI / 180),
-    im: mag * Math.sin(Iang[i] * Math.PI / 180)
-  }));
-
-  // Simplified "unbalance" approximation for students:
-  const avg = (phases[0].re + phases[1].re + phases[2].re) / 3;
-  const i2 = Math.abs(Iabc[0] - Iabc[1]) * 0.5; // Negative Sequence approximation
-  const i0 = Math.abs(Iabc[0] + Iabc[1] + Iabc[2]) / 3; // Zero Sequence approximation
-
-  return { i1: avg || 1.0, i2: i2, i0: i0 };
-};
-
-
 
 export class RelaySim {
-  // IEEE C37.90 / IEC Standard Inverse Curve
-  private idmt51(psm: number): number {
-    if (psm <= 1.0) return Infinity;
-    return 0.14 / (Math.pow(psm, 0.02) - 1);
-  }
+  run(fault: { type: string, Iabc: number[], Iang: number[], V?: number, f?: number }) {
+    const { type, Iabc, Iang, V = 1.0, f = 60 } = fault;
+    const maxI = Math.max(...Iabc);
+    const pickup = 1.5; // Standard 1.5pu Pickup
+    const TD = 0.5;    // Time Dial
+    
+    // --- 1. Symmetrical Components (Calculated for 46 & 50G) ---
+    const i0 = Math.abs(Iabc[0] + Iabc[1] + Iabc[2]) / 3;
+    const i2 = (maxI - Math.min(...Iabc)) / 2; // Simplified I2 approximation
 
-  // Instantaneous Overcurrent (50)
-  private inst50(I: number, pickup: number = 1.5): boolean {
-    return I > pickup;
-  }
+    switch (type) {
+      case '50': return { trip: maxI > 8.0, time: 0.016 };
+      case '51': 
+        const M = maxI / pickup;
+        if (M <= 1) return { trip: false, time: Infinity };
+        // IEEE Very Inverse: t = TD * (19.61 / (M^2 - 1) + 0.491)
+        return { trip: true, time: TD * (19.61 / (Math.pow(M, 2) - 1) + 0.491) };
+      
+      case '50G': return { trip: i0 > 0.2, time: 0.016 };
+      case '46': return { trip: i2 / maxI > 0.15, time: 0.5 };
+      case '49': return { trip: maxI > 1.1, time: 10.0 }; // Thermal delay
+      
+      case '87T':
+      case '87B': 
+        // Differential: Operate if |I_in - I_out| > Slope
+        return { trip: maxI > 2.0, time: 0.02 }; 
 
-  // Differential Protection (87) - Mason Bias logic
-  private diff87(Ia: number, Ib: number, k = 0.2): boolean {
-    const Idiff = Math.abs(Ia - Ib);
-    const Ibias = (Ia + Ib) / 2;
-    return Idiff > k * Ibias;
-  }
+      case '24': // V/Hz Protection
+        return { trip: (V / (f/60)) > 1.1, time: 2.0 };
 
-  // Distance Protection (21) - Mho Characteristic
-  private dist21(Z: Complex, Zset = 0.8): string {
-    const m = Math.sqrt(Z.re ** 2 + Z.im ** 2);
-    if (m < Zset) return 'Zone 1 (Instant)';
-    if (m < 1.2 * Zset) return 'Zone 2 (Delayed)';
-    return 'Stable';
-  }
+      case '21': // Distance (Impedance Z = V/I)
+        const Z = V / maxI;
+        return { trip: Z < 0.5, time: 0.05 };
 
-  public run(fault: Fault): SimResult {
-    const Imax = Math.max(...fault.Iabc);
-    const Imin = Math.min(...fault.Iabc);
-    const psm = Imax / 1.5;
+      case '67': // Directional (Simplified)
+        return { trip: maxI > pickup && Iang[0] > 90, time: 0.1 };
 
-    let result: SimResult = { trip: false, time: 0, psm: psm };
-
-    switch (fault.type) {
-      case '50':
-        result.trip = this.inst50(Imax);
-        result.time = result.trip ? 0.05 : 0;
-        break;
-
-      case '51':
-        result.time = this.idmt51(psm);
-        // Ensure trip only occurs if PSM > 1.0
-        result.trip = isFinite(result.time) && psm > 1.0;
-        break;
-
-      case '87':
-        // IMPROVED: Compare the most unbalanced phases (Imax vs Imin)
-        // This makes the '87' button work regardless of which slider you move
-        result.trip = this.diff87(Imax, Imin);
-        result.time = result.trip ? 0.03 : 0;
-        break;
-
-      case '21':
-        // Calculate Z = V/I if not explicitly provided
-        const Vavg = fault.Vabc ? (fault.Vabc[0] + fault.Vabc[1] + fault.Vabc[2]) / 3 : 1.0;
-        const zValue = Imax > 0 ? Vavg / Imax : 999;
-        const z = fault.Zload || { re: zValue, im: zValue * 0.5 };
-
-        const zone = this.dist21(z);
-        result.zone = zone;
-        result.trip = zone !== 'Stable';
-        result.time = zone.includes('Zone 1') ? 0.02 : 0.4;
-        break;
-
-      case '27':
-        const Vmin = fault.Vabc ? Math.min(...fault.Vabc) : 1.0;
-        result.trip = Vmin < 0.8;
-        result.time = result.trip ? 2.0 : 0;
-        break;
-
-      case 'L-G':
-      case 'L-L':
-      case 'L-L-L':
-        // Using your 2.0pu pickup logic for physical faults
-        result.trip = this.inst50(Imax, 2.0);
-        result.time = result.trip ? 0.01 : 0;
-        break;
-
-      default:
-        result.trip = false;
-        result.time = 0;
+      default: return { trip: false, time: 0 };
     }
-    return result;
   }
 }

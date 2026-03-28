@@ -1,73 +1,25 @@
-export interface FaultInfo {
-  code: string;
-  name: string;
-  desc: string;
-  category: 'ANSI Device' | 'Fault Type';
-  explanation: string;
-  mathContext: string;
-  source?: string;
-}
+export type FaultTypeCode = '50' | '51' | '50G' | '46' | '49' | '66' | '87T' | '24' | '63' | '87B' | '21' | '67';
 
-export const FAULT_REGISTRY: Record<string, FaultInfo> = {
-  // ANSI Protection Functions
-  '21': {
-    code: '21', name: 'Distance (Mho)', category: 'ANSI Device',
-    desc: 'Trips based on Impedance (V/I)',
-    explanation: 'Protects transmission lines by monitoring the ratio of V/I. If the impedance (Z) drops below a set "reach," a fault is detected.',
-    mathContext: 'Logic: $Z_{measured} < Z_{set}$. Zone 1 is usually 80% of line length.',
-    source: 'IEEE C37.2 / Anderson Power System Protection'
-  },
-  '27': {
-    code: '27', name: 'Undervoltage', category: 'ANSI Device',
-    desc: 'Trips if Voltage < 0.80pu',
-    explanation: 'Detects a collapse in system voltage. Critical for preventing induction motor stalling and protecting sensitive electronics.',
-    mathContext: 'Logic: $min(V_a, V_b, V_c) < V_{threshold}$.',
-    source: 'IEEE C37.2'
-  },
-  '50': {
-    code: '50', name: 'Instantaneous Overcurrent', category: 'ANSI Device',
-    desc: 'Immediate trip for high-magnitude faults',
-    explanation: 'A non-delayed protection meant for severe short circuits close to the source.',
-    mathContext: 'Logic: $I_{max} > I_{pickup}$. Operating time typically < 50ms.',
-    source: 'IEC 60255 / IEEE C37.90'
-  },
-  '51': {
-    code: '51', name: 'AC Time Overcurrent', category: 'ANSI Device',
-    desc: 'Inverse time delay (IDMT)',
-    explanation: 'The most common protection. The trip time decreases as the current increases, allowing for coordination with downstream fuses.',
-    mathContext: 'Formula: $t = 0.14 / (PSM^{0.02} - 1)$ (IEC Very Inverse).',
-    source: 'IEC 60255 Standards'
-  },
-  '87': {
-    code: '87', name: 'Differential Protection', category: 'ANSI Device',
-    desc: 'Unit protection for transformers/busbars',
-    explanation: 'Compares current entering and leaving a zone. If they don\'t match (Kirchhoff\'s Law), an internal fault is present.',
-    mathContext: 'Logic: $|I_{in} - I_{out}| > k \cdot \frac{I_{in} + I_{out}}{2}$.',
-    source: 'Mason\'s Art and Science of Protective Relaying'
-  },
+export const FAULT_REGISTRY: Record<string, any> = {
+  // FEEDER / GENERAL
+  "50": { code: "50", name: "Instantaneous Overcurrent", category: "Feeder", explanation: "Trips without intentional delay when current exceeds pickup.", mathContext: "I > I_pickup" },
+  "51": { code: "51", name: "Time Overcurrent", category: "Feeder", explanation: "Inverse time delay based on IEEE/IEC curves.", mathContext: "t = TD * (A / (M^p - 1) + B)" },
+  "50G": { code: "50G", name: "Ground Instantaneous", category: "Feeder", explanation: "Detects zero-sequence ground faults.", mathContext: "3I0 > Threshold" },
 
-  // Physical Fault Types
-  'L-G': {
-    code: 'L-G', name: 'Single Line-to-Ground', category: 'Fault Type',
-    desc: 'Phase-to-Earth contact',
-    explanation: 'The most common fault (70-80% of cases). Occurs when one conductor touches a grounded object (tree, pole, etc.).',
-    mathContext: 'Calculated using Zero Sequence components ($3I_0$).',
-    source: 'Standard Handbook for Electrical Engineers'
-  },
-  'L-L': {
-    code: 'L-L', name: 'Line-to-Line', category: 'Fault Type',
-    desc: 'Contact between two phases',
-    explanation: 'Occurs when two conductors touch, often due to high winds or insulator failure. Does not involve ground.',
-    mathContext: 'Results in high Negative Sequence ($I_2$) currents.',
-    source: 'Standard Handbook for Electrical Engineers'
-  },
-  'L-L-L': {
-    code: 'L-L-L', name: 'Three-Phase Symmetrical', category: 'Fault Type',
-    desc: 'All phases shorted together',
-    explanation: 'The most severe but rarest fault (~5%). Used to calculate the maximum "Short Circuit MVA" of a system.',
-    mathContext: 'Balanced fault; only Positive Sequence ($I_1$) exists.',
-    source: 'Standard Handbook for Electrical Engineers'
-  }
+  // MOTOR
+  "46": { code: "46", name: "Phase Unbalance", category: "Motor", explanation: "Protects against negative sequence heating.", mathContext: "I2 / I1 > Unbalance %" },
+  "49": { code: "49", name: "Thermal Overload", category: "Motor", explanation: "Models machine temperature based on I²t.", mathContext: "θ = (I/I_rated)² * (1 - e^-t/τ)" },
+  "66": { code: "66", name: "Starts Per Hour", category: "Motor", explanation: "Prevents thermal stress from repeated starts.", mathContext: "Count > Max_Starts" },
+
+  // TRANSFORMER
+  "87T": { code: "87T", name: "Transformer Differential", category: "Transformer", explanation: "Compares primary vs secondary current.", mathContext: "|I_diff| > K * |I_restraint|" },
+  "24": { code: "24", name: "Volts Per Hertz", category: "Transformer", explanation: "Overexcitation protection for the core.", mathContext: "V / f > 1.05 pu" },
+  "63": { code: "63", name: "Sudden Pressure", category: "Transformer", explanation: "Mechanical pressure relay for internal arcs.", mathContext: "dP/dt > Limit" },
+
+  // BUS & LINE
+  "87B": { code: "87B", name: "Bus Differential", category: "Bus", explanation: "High-speed zone protection for the main bus.", mathContext: "ΣI_in == ΣI_out" },
+  "21": { code: "21", name: "Distance (Mho)", category: "Line", explanation: "Impedance-based protection for transmission lines.", mathContext: "Z_seen < Z_zone" },
+  "67": { code: "67", name: "Directional Overcurrent", category: "Line", explanation: "Only trips for faults in a specific direction.", mathContext: "Angle(V, I) in Trip Zone" }
 };
 
-export type FaultTypeCode = keyof typeof FAULT_REGISTRY;
+
