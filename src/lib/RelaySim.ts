@@ -47,46 +47,53 @@ export class RelaySim {
 
   public run(fault: Fault): SimResult {
     const Imax = Math.max(...fault.Iabc);
-    const psm = Imax / 1.5; // Assuming 1.5pu pickup
+    const Imin = Math.min(...fault.Iabc);
+    const psm = Imax / 1.5;
 
-    // Default result to prevent UI crashes
     let result: SimResult = { trip: false, time: 0, psm: psm };
 
     switch (fault.type) {
       case '50':
         result.trip = this.inst50(Imax);
-        result.time = result.trip ? 0.05 : 0; // 50ms fixed
+        result.time = result.trip ? 0.05 : 0;
         break;
 
       case '51':
         result.time = this.idmt51(psm);
-        result.trip = isFinite(result.time) && result.time < 100;
+        // Ensure trip only occurs if PSM > 1.0
+        result.trip = isFinite(result.time) && psm > 1.0;
         break;
 
       case '87':
-        result.trip = this.diff87(fault.Iabc[0], fault.Iabc[1]);
-        result.time = result.trip ? 0.03 : 0; // 30ms fixed
+        // IMPROVED: Compare the most unbalanced phases (Imax vs Imin)
+        // This makes the '87' button work regardless of which slider you move
+        result.trip = this.diff87(Imax, Imin);
+        result.time = result.trip ? 0.03 : 0;
         break;
 
       case '21':
-        const z = fault.Zload || { re: 1.0, im: 0.5 };
+        // Calculate Z = V/I if not explicitly provided
+        const Vavg = fault.Vabc ? (fault.Vabc[0] + fault.Vabc[1] + fault.Vabc[2]) / 3 : 1.0;
+        const zValue = Imax > 0 ? Vavg / Imax : 999;
+        const z = fault.Zload || { re: zValue, im: zValue * 0.5 };
+
         const zone = this.dist21(z);
         result.zone = zone;
         result.trip = zone !== 'Stable';
         result.time = zone.includes('Zone 1') ? 0.02 : 0.4;
         break;
 
-      case '27': // Undervoltage
+      case '27':
         const Vmin = fault.Vabc ? Math.min(...fault.Vabc) : 1.0;
         result.trip = Vmin < 0.8;
         result.time = result.trip ? 2.0 : 0;
         break;
 
-      // Handle Physical Fault Types (L-G, L-L, L-L-L) as Overcurrent (50/51)
       case 'L-G':
       case 'L-L':
       case 'L-L-L':
-        result.trip = this.inst50(Imax, 2.0); // Higher pickup for severe faults
+        // Using your 2.0pu pickup logic for physical faults
+        result.trip = this.inst50(Imax, 2.0);
         result.time = result.trip ? 0.01 : 0;
         break;
 
@@ -94,7 +101,6 @@ export class RelaySim {
         result.trip = false;
         result.time = 0;
     }
-
     return result;
   }
 }
