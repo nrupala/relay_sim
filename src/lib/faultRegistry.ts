@@ -1,71 +1,54 @@
 export interface FaultInfo {
   code: string;
   name: string;
-  desc: string;
   category: 'ANSI Device' | 'Fault Type';
   explanation: string;
   mathContext: string;
-  source?: string;
+  targetEquipment: string[]; // New: motor, transformer, line, etc.
+  source: string;
 }
 
 export const FAULT_REGISTRY: Record<string, FaultInfo> = {
-  // ANSI Protection Functions
+  '50/51': {
+    code: '50/51', name: 'Overcurrent (Phase)', category: 'ANSI Device',
+    targetEquipment: ['Line', 'Motor', 'Transformer'],
+    explanation: 'Detects currents exceeding safe limits. In motors, it protects against "Locked Rotor" conditions.',
+    mathContext: 'Motor Start: $I_{start} \approx 6 \times I_{rated}$. Relay must "dwell" during start.',
+    source: 'IEEE C37.96 (Motor Protection Guide)'
+  },
+  '87T': {
+    code: '87T', name: 'Transformer Differential', category: 'ANSI Device',
+    targetEquipment: ['Transformer'],
+    explanation: 'Protects against internal winding shorts. It uses "Harmonic Restraint" to avoid tripping on magnetizing inrush.',
+    mathContext: 'Restraint: 2nd Harmonic > 15% indicates inrush, NOT a fault.',
+    source: 'Mason: Art & Science of Protective Relaying'
+  },
+  '27/59': {
+    code: '27/59', name: 'Under/Over Voltage', category: 'ANSI Device',
+    targetEquipment: ['VFD', 'Motor', 'Generator'],
+    explanation: 'Crucial for VFDs. High DC bus voltage (Overvoltage) can explode capacitors.',
+    mathContext: 'VFD Trip: Usually $>110\%$ or $<90\%$ of rated bus voltage.',
+    source: 'Industrial VFD Troubleshooting (Megger/ABB)'
+  },
+  '46': {
+    code: '46', name: 'Negative Sequence', category: 'ANSI Device',
+    targetEquipment: ['Generator', 'Motor'],
+    explanation: 'Detects "Single Phasing." Unbalanced currents cause intense rotor heating.',
+    mathContext: '$I_2$ heating: $K = I_2^2 \cdot t$. Detects phase loss before the motor burns.',
+    source: 'IEEE C37.102 (Generator Protection)'
+  },
   '21': {
     code: '21', name: 'Distance (Mho)', category: 'ANSI Device',
-    desc: 'Trips based on Impedance (V/I)',
-    explanation: 'Protects transmission lines by monitoring the ratio of V/I. If the impedance (Z) drops below a set "reach," a fault is detected.',
-    mathContext: 'Logic: $Z_{measured} < Z_{set}$. Zone 1 is usually 80% of line length.',
-    source: 'IEEE C37.2 / Anderson Power System Protection'
+    targetEquipment: ['Line'],
+    explanation: 'Primary protection for long lines. Ignores load, focuses on "Reach" distance.',
+    mathContext: 'Zone 1: 80% of Line Impedance. Instantaneous trip.',
+    source: 'Anderson: Power System Protection'
   },
-  '27': {
-    code: '27', name: 'Undervoltage', category: 'ANSI Device',
-    desc: 'Trips if Voltage < 0.80pu',
-    explanation: 'Detects a collapse in system voltage. Critical for preventing induction motor stalling and protecting sensitive electronics.',
-    mathContext: 'Logic: $min(V_a, V_b, V_c) < V_{threshold}$.',
-    source: 'IEEE C37.2'
-  },
-  '50': {
-    code: '50', name: 'Instantaneous Overcurrent', category: 'ANSI Device',
-    desc: 'Immediate trip for high-magnitude faults',
-    explanation: 'A non-delayed protection meant for severe short circuits close to the source.',
-    mathContext: 'Logic: $I_{max} > I_{pickup}$. Operating time typically < 50ms.',
-    source: 'IEC 60255 / IEEE C37.90'
-  },
-  '51': {
-    code: '51', name: 'AC Time Overcurrent', category: 'ANSI Device',
-    desc: 'Inverse time delay (IDMT)',
-    explanation: 'The most common protection. The trip time decreases as the current increases, allowing for coordination with downstream fuses.',
-    mathContext: 'Formula: $t = 0.14 / (PSM^{0.02} - 1)$ (IEC Very Inverse).',
-    source: 'IEC 60255 Standards'
-  },
-  '87': {
-    code: '87', name: 'Differential Protection', category: 'ANSI Device',
-    desc: 'Unit protection for transformers/busbars',
-    explanation: 'Compares current entering and leaving a zone. If they don\'t match (Kirchhoff\'s Law), an internal fault is present.',
-    mathContext: 'Logic: $|I_{in} - I_{out}| > k \cdot \frac{I_{in} + I_{out}}{2}$.',
-    source: 'Mason\'s Art and Science of Protective Relaying'
-  },
-
-  // Physical Fault Types
-  'L-G': {
-    code: 'L-G', name: 'Single Line-to-Ground', category: 'Fault Type',
-    desc: 'Phase-to-Earth contact',
-    explanation: 'The most common fault (70-80% of cases). Occurs when one conductor touches a grounded object (tree, pole, etc.).',
-    mathContext: 'Calculated using Zero Sequence components ($3I_0$).',
-    source: 'Standard Handbook for Electrical Engineers'
-  },
-  'L-L': {
-    code: 'L-L', name: 'Line-to-Line', category: 'Fault Type',
-    desc: 'Contact between two phases',
-    explanation: 'Occurs when two conductors touch, often due to high winds or insulator failure. Does not involve ground.',
-    mathContext: 'Results in high Negative Sequence ($I_2$) currents.',
-    source: 'Standard Handbook for Electrical Engineers'
-  },
-  'L-L-L': {
-    code: 'L-L-L', name: 'Three-Phase Symmetrical', category: 'Fault Type',
-    desc: 'All phases shorted together',
-    explanation: 'The most severe but rarest fault (~5%). Used to calculate the maximum "Short Circuit MVA" of a system.',
-    mathContext: 'Balanced fault; only Positive Sequence ($I_1$) exists.',
+  '63': {
+    code: '63', name: 'Buchholz / Gas Pressure', category: 'ANSI Device',
+    targetEquipment: ['Transformer'],
+    explanation: 'A mechanical relay that detects gas bubbles caused by oil breakdown during internal arcing.',
+    mathContext: 'Mechanical: Not vector-based. Detects dielectric breakdown.',
     source: 'Standard Handbook for Electrical Engineers'
   }
 };
