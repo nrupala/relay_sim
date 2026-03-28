@@ -1,77 +1,96 @@
 import { useState } from 'react';
-import { RelaySim } from './lib/RelaySim';
 import { FAULT_REGISTRY } from './lib/faultRegistry';
-import type { FaultTypeCode } from './lib/faultRegistry';
+import { HelpSection } from './components/HelpSection';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<'graph' | 'math'>('graph');
   const [fault, setFault] = useState({
-    type: '51' as FaultTypeCode,
-    Iabc: [2.20, 2.40, 1.70],
-    Vabc: [0.65, 0.45, 0.30]
+    type: '51',
+    Iabc: [2.2, 1.0, 1.0],
+    angles: [0, -120, 120], // Adding Phase Angles in degrees
   });
 
-  const sim = new RelaySim();
-  const result = sim.run(fault as any);
-  const info = FAULT_REGISTRY[fault.type];
-
-  // Simple SVG Phasor Graph Component
-  const PhasorGraph = () => (
-    <svg viewBox="-100 -100 200 200" style={{ width: '100%', height: '250px', background: '#fff', borderRadius: 8 }}>
-      <circle cx="0" cy="0" r="80" fill="none" stroke="#eee" strokeWidth="1" />
-      <line x1="-100" y1="0" x2="100" y2="0" stroke="#eee" />
-      <line x1="0" y1="-100" x2="0" y2="100" stroke="#eee" />
-      {/* Current Vectors (Simplified for visualization) */}
-      <line x1="0" y1="0" x2={fault.Iabc[0] * 20} y2="0" stroke="red" strokeWidth="3" markerEnd="url(#arrow)" />
-      <line x1="0" y1="0" x2={-fault.Iabc[1] * 10} y2={fault.Iabc[1] * 17} stroke="blue" strokeWidth="3" />
-      <line x1="0" y1="0" x2={-fault.Iabc[2] * 10} y2={-fault.Iabc[2] * 17} stroke="green" strokeWidth="3" />
-      <text x="-95" y="90" fontSize="10" fill="#999">Scale: 1 unit = 20px</text>
-    </svg>
-  );
+  // Convert Polar (Mag, Ang) to Cartesian (X, Y) for SVG
+  const getCoords = (mag: number, deg: number) => {
+    const rad = (deg * Math.PI) / 180;
+    return { x: Math.cos(rad) * mag * 30, y: -Math.sin(rad) * mag * 30 };
+  };
 
   return (
-    <div style={{ padding: 25, maxWidth: 1100, margin: '0 auto', fontFamily: 'system-ui', color: '#2d3748' }}>
-      <header style={{ marginBottom: 20, borderBottom: '2px solid #edf2f7', paddingBottom: 15 }}>
-        <h1 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: 10 }}>🔵 IEEE C37 Relay Simulator</h1>
-        <p style={{ color: '#718096', margin: '5px 0' }}>Active Logic: <strong>{info?.name}</strong></p>
-      </header>
+    <div style={{ padding: 25, maxWidth: 1200, margin: '0 auto', fontFamily: 'system-ui' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '450px 1fr', gap: 40 }}>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '400px 1fr', gap: 30 }}>
-        {/* LEFT: RESULTS & TABS */}
-        <div style={{ background: '#f8fafc', padding: 25, borderRadius: 15, border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)' }}>
-          <h3 style={{ marginTop: 0 }}>📊 Simulation Results</h3>
-          <div style={{ fontSize: 36, fontWeight: 'bold', color: result.trip ? '#e53e3e' : '#38a169', margin: '15px 0' }}>
-            {result.trip ? '🚨 TRIP!' : '✅ NORMAL'}
+        {/* LEFT: PHASOR DIAGRAM */}
+        <div style={{ background: '#1a202c', padding: 20, borderRadius: 15, color: '#fff' }}>
+          <h3 style={{ marginTop: 0 }}>📉 Phasor Diagram (Vector)</h3>
+          <svg viewBox="-100 -100 200 200" style={{ width: '100%', height: '350px' }}>
+            {/* Grid Lines */}
+            <circle cx="0" cy="0" r="30" fill="none" stroke="#2d3748" />
+            <circle cx="0" cy="0" r="60" fill="none" stroke="#2d3748" />
+            <line x1="-100" y1="0" x2="100" y2="0" stroke="#2d3748" />
+            <line x1="0" y1="-100" x2="0" y2="100" stroke="#2d3748" />
+
+            {/* Vector Arrows */}
+            {fault.Iabc.map((mag, i) => {
+              const pos = getCoords(mag, fault.angles[i]);
+              const colors = ['#f56565', '#4299e1', '#48bb78']; // Red, Blue, Green
+              return (
+                <g key={i}>
+                  <line x1="0" y1="0" x2={pos.x} y2={pos.y} stroke={colors[i]} strokeWidth="3" markerEnd="url(#arrow)" />
+                  <text x={pos.x + 5} y={pos.y} fill={colors[i]} fontSize="10">I{String.fromCharCode(65 + i)}</text>
+                </g>
+              );
+            })}
+          </svg>
+
+          <div style={{ marginTop: 15, fontSize: 13, background: '#2d3748', padding: 10, borderRadius: 8 }}>
+            <strong>💡 Context:</strong> {FAULT_REGISTRY[fault.type]?.context}
           </div>
-
-          <div style={{ background: '#fff', padding: 15, borderRadius: 8, border: '1px solid #edf2f7', marginBottom: 20 }}>
-            <strong>Trip Time:</strong> {result.trip ? `${result.time.toFixed(3)}s` : '∞'}<br />
-            <strong>I-Peak:</strong> {Math.max(...fault.Iabc).toFixed(2)}pu
-          </div>
-
-          {/* TABS */}
-          <div style={{ display: 'flex', borderBottom: '2px solid #e2e8f0', marginBottom: 15 }}>
-            <button onClick={() => setActiveTab('graph')} style={{ padding: '10px 20px', border: 'none', background: 'none', cursor: 'pointer', borderBottom: activeTab === 'graph' ? '3px solid #3182ce' : 'none', fontWeight: activeTab === 'graph' ? 'bold' : 'normal' }}>Graph</button>
-            <button onClick={() => setActiveTab('math')} style={{ padding: '10px 20px', border: 'none', background: 'none', cursor: 'pointer', borderBottom: activeTab === 'math' ? '3px solid #3182ce' : 'none', fontWeight: activeTab === 'math' ? 'bold' : 'normal' }}>Explainer</button>
-          </div>
-
-          {activeTab === 'graph' ? <PhasorGraph /> : (
-            <div style={{ fontSize: 14, lineHeight: 1.6, background: '#fff', padding: 15, borderRadius: 8 }}>
-              <strong>Logic Applied:</strong><br />
-              {fault.type === '51' && `t = 0.14 / (PSM^0.02 - 1)`}
-              {fault.type === '50' && `Trip if I > 1.5pu`}
-              {fault.type === 'L-L' && `Differential check: |Ia - Ib| > 0.2 * (Ia+Ib)`}
-              <br /><br />
-              <span style={{ color: '#718096' }}>*Calculated using IEEE C37.90 Standard Inverse curves.</span>
-            </div>
-          )}
         </div>
 
-        {/* RIGHT: CONTROLS (Same as your current working version) */}
+        {/* RIGHT: VECTOR CONTROLS */}
         <div>
-          {/* ... Keep your current Slider and Button code here ... */}
+          <h3>🔧 Vector Controls</h3>
+          {fault.Iabc.map((mag, i) => (
+            <div key={i} style={{ marginBottom: 20, borderBottom: '1px solid #eee', paddingBottom: 10 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <label><strong>Phase {String.fromCharCode(65 + i)}</strong></label>
+                <span style={{ color: '#718096' }}>{mag.toFixed(2)}pu ∠ {fault.angles[i]}°</span>
+              </div>
+              {/* Magnitude Slider */}
+              <input type="range" min="0" max="3" step="0.1" value={mag} style={{ width: '100%' }}
+                onChange={e => {
+                  const newI = [...fault.Iabc];
+                  newI[i] = +e.target.value;
+                  setFault({ ...fault, Iabc: newI });
+                }} />
+              {/* Angle Slider */}
+              <input type="range" min="-180" max="180" step="1" value={fault.angles[i]} style={{ width: '100%', opacity: 0.6 }}
+                onChange={e => {
+                  const newA = [...fault.angles];
+                  newA[i] = +e.target.value;
+                  setFault({ ...fault, angles: newA });
+                }} />
+            </div>
+          ))}
+
+          {/* Function Selector with Tooltips */}
+          <h3>ANSI Function Selector</h3>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+            {Object.keys(FAULT_REGISTRY).map(code => (
+              <button key={code} title={FAULT_REGISTRY[code].desc}
+                onClick={() => setFault({ ...fault, type: code })}
+                style={{
+                  padding: '10px 15px', borderRadius: 8, cursor: 'pointer',
+                  border: fault.type === code ? '2px solid #3182ce' : '1px solid #ccc',
+                  background: fault.type === code ? '#ebf8ff' : '#fff'
+                }}>
+                {code}
+              </button>
+            ))}
+          </div>
         </div>
       </div>
+      <HelpSection />
     </div>
   );
 }
