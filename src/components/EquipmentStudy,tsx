@@ -1,43 +1,16 @@
-import { useState } from 'react';
 import { FAULT_REGISTRY } from '../lib/faultRegistry';
 
-const equipments = ['Motor', 'Transformer', 'Line', 'VFD', 'Generator'];
-
-export const EquipmentStudy = () => {
-  const [selected, setSelected] = useState('Motor');
-
-  return (
-    <div style={{ marginTop: 40, padding: '20px', background: '#f7fafc', borderRadius: '15px' }}>
-      <h2 style={{ color: '#2d3748' }}>📖 Equipment-Specific Study</h2>
-      <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
-        {equipments.map(e => (
-          <button key={e} onClick={() => setSelected(e)}
-            style={{
-              padding: '8px 16px', borderRadius: '20px', cursor: 'pointer',
-              border: selected === e ? '2px solid #3182ce' : '1px solid #cbd5e0',
-              background: selected === e ? '#3182ce' : '#fff',
-              color: selected === e ? '#fff' : '#4a5568',
-              fontWeight: 'bold'
-            }}>
-            {e}
-          </button>
-        ))}
-      </div>
-
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '15px' }}>
-        {Object.values(FAULT_REGISTRY)
-          .filter(f => f.targetEquipment.includes(selected))
-          .map(f => (
-            <div key={f.code} style={{ background: '#fff', padding: '15px', borderRadius: '10px', boxShadow: '0 2px 4px rgba(0,0,0,0.05)' }}>
-              <strong style={{ color: '#3182ce' }}>ANSI {f.code}</strong>
-              <h4 style={{ margin: '5px 0' }}>{f.name}</h4>
-              <p style={{ fontSize: '13px', color: '#718096' }}>{f.explanation}</p>
-              <div style={{ fontSize: '11px', background: '#edf2f7', padding: '8px', borderRadius: '5px', marginTop: '10px' }}>
-                <strong>Student Tip:</strong> {f.mathContext}
-              </div>
-            </div>
-          ))}
-      </div>
+export const EquipmentStudy = () => (
+<div style={{ padding: '20px' , background: '#f7fafc' , borderRadius: '15px' }}>
+  <h2>📖 Equipment Reference</h2>
+  <div style={{ display: 'grid' , gridTemplateColumns: '1fr 1fr' , gap: '20px' }}>
+    {Object.values(FAULT_REGISTRY).map(f => (
+    <div key={f.code} style={{ background: '#fff' , padding: '15px' , borderRadius: '10px' , border: '1px solid #e2e8f0'
+      }}>
+      <strong style={{ color: '#3182ce' }}>{f.name} ({f.code})</strong>
+      <p style={{ fontSize: '13px' }}>{f.explanation}</p>
     </div>
-  );
-};
+    ))}
+  </div>
+</div>
+);
