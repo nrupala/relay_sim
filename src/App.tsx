@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { RelaySim } from './lib/RelaySim';
-import { FAULT_REGISTRY, FaultTypeCode } from './lib/faultCodes';
+import { FAULT_REGISTRY, FaultTypeCode } from './lib/faultRegistry';
 
 type FaultState = { type: FaultTypeCode; Iabc: number[] };
 
@@ -39,7 +39,7 @@ export default function App() {
           {fault.Iabc.map((curr, i) => (
             <div key={i} style={{ marginBottom: 10 }}>
               <label>Phase {String.fromCharCode(65 + i)}: {curr.toFixed(2)}pu</label>
-              <input type="range" min="0" max="5" step="0.1" value={curr} 
+              <input type="range" min="0" max="5" step="0.1" value={curr}
                 style={{ width: '100%' }} onChange={e => updateCurrent(i, +e.target.value)} />
             </div>
           ))}
