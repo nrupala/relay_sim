@@ -1,5 +1,6 @@
 import { FAULT_REGISTRY } from './faultRegistry';
-import { FaultTypeCode } from './faultRegistry';
+import type { FaultTypeCode } from './faultRegistry'; // MUST include 'type' keyword
+
 
 export type Complex = { re: number; im: number };
 
