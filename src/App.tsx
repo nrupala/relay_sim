@@ -2,7 +2,9 @@
 import { useState } from 'react';
 import { RelaySim } from './lib/RelaySim';
 // 1. Ensure the import name matches exactly
-import { FAULT_REGISTRY, FaultTypeCode } from './lib/faultRegistry';
+import { FAULT_REGISTRY } from './lib/faultRegistry';
+import type { FaultTypeCode } from './lib/faultRegistry';
+
 
 export default function App() {
   // 2. State initialization using the registry keys
