@@ -1,73 +1,32 @@
-# React + TypeScript + Vite
+# relay_sim — Relay Fault Simulation Engine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive training simulator for protective relaying: power-system faults and how protection relays respond. Built for learning and intuition — motor, transformer, busbar, and transmission-line equipment models with ANSI relay functions you can fault, watch, and trip.
 
-Currently, two official plugins are available:
+## What it does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **12 ANSI device functions** — 50/51/50G overcurrent, 46 phase unbalance, 49 thermal, 66 starts-per-hour, 87T/87B differential, 24 volts-per-hertz, 63 sudden pressure, 21 distance (mho), 67 directional overcurrent. Each ships with a plain-language explanation and the math behind it.
+- **4 equipment models** — industrial motor (4.16 kV / 500 HP), power transformer (13.8/4.16 kV), main busbar (13.8 kV), transmission line (115 kV), each wired to the relays that protect it.
+- **Real relay math, simplified** — IEEE very-inverse time curves `t = TD · (A/(M^p − 1) + B)`, symmetrical components, V/Hz overexcitation, and impedance-based distance reach, with fixed, disclosed teaching constants.
+- **Visual lab** — sequence-phasor display, TCC plotter, power analyzer, trip readout, plus a help section grounded in IEEE 242 and GE's *Art & Science of Protective Relaying*.
 
-## React Compiler
+## Try it
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Live demo: <https://nrupala.github.io/relay_sim/>
 
-## Expanding the ESLint configuration
+## Run it locally
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev      # dev server with HMR
+npm run build    # typecheck + production build
+npm run lint     # eslint
+npm run deploy   # build + publish to GitHub Pages
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scope honesty
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+The engine uses simplified teaching models — fixed pickup and time-dial constants, approximated sequence components. It builds intuition for how relays behave; it is not a protection coordination or settings tool.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Roadmap
+
+See [`upcoming_features.md`](upcoming_features.md) for the v4.0 plan: a multivariable environmental lab with motor-starting studies, a CT saturation lab, a full log-log TCC plotter, and a sequence-of-events log. Changes are tracked in [`CHANGELOG.md`](CHANGELOG.md) under the [app versioning standard](docs/VERSIONING.md).
