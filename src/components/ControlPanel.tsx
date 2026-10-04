@@ -1,6 +1,7 @@
 // src/components/ControlPanel.tsx
 import React from 'react';
 import { FAULT_REGISTRY } from '../lib/faultRegistry';
+import { formatVoltage, motorRating } from '../data/voltageLevels';
 
 interface ControlPanelProps {
   availableRelays: string[];
@@ -9,9 +10,14 @@ interface ControlPanelProps {
     Iabc: number[];
   };
   onUpdate: (updatedFault: any) => void;
+  equipmentId: string;
+  voltageLevels: number[];
+  selectedVoltage: number;
+  onVoltageChange: (v: number) => void;
 }
 
-export const ControlPanel = ({ availableRelays, currentFault, onUpdate }: ControlPanelProps) => {
+export const ControlPanel = ({ availableRelays, currentFault, onUpdate,
+  equipmentId, voltageLevels, selectedVoltage, onVoltageChange }: ControlPanelProps) => {
   
   // Update a single phase magnitude (I_A, I_B, or I_C)
   const updatePhase = (index: number, val: number) => {
@@ -23,6 +29,37 @@ export const ControlPanel = ({ availableRelays, currentFault, onUpdate }: Contro
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       
+      {/* 0. SYSTEM VOLTAGE (standard classes) */}
+      <section style={{ background: '#fff', padding: '15px', borderRadius: '12px', border: '1px solid #edf2f7' }}>
+        <label style={{ display: 'block', fontSize: '12px', fontWeight: 'bold', marginBottom: '8px', color: '#4a5568' }}>
+          ⚡ System Voltage
+        </label>
+        <select
+          value={selectedVoltage}
+          onChange={(e) => onVoltageChange(+e.target.value)}
+          style={{
+            width: '100%',
+            padding: '10px',
+            borderRadius: '8px',
+            border: '1px solid #cbd5e0',
+            backgroundColor: '#fff',
+            fontSize: '14px',
+            fontWeight: '600',
+            color: '#2d3748',
+            cursor: 'pointer'
+          }}
+        >
+          {voltageLevels.map((v) => (
+            <option key={v} value={v}>
+              {formatVoltage(v)}{equipmentId === 'motor' ? ` \u2014 ${motorRating(v)}` : ''}
+            </option>
+          ))}
+        </select>
+        <div style={{ marginTop: '12px', fontSize: '11px', color: '#718096', fontStyle: 'italic', lineHeight: '1.4' }}>
+          💡 Engine works in per-unit; kV sets the base for MW telemetry.
+        </div>
+      </section>
+
       {/* 1. VECTOR INJECTION SLIDERS */}
       <section style={{ background: '#fff', padding: '15px', borderRadius: '12px', border: '1px solid #edf2f7' }}>
         <h4 style={{ margin: '0 0 15px 0', fontSize: '13px', color: '#2d3748', borderBottom: '1px solid #edf2f7', paddingBottom: '8px' }}>
