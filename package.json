@@ -1,7 +1,8 @@
 {
   "name": "relay_sim",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
   "type": "module",
   "homepage": "https://nrupala.github.io/relay_sim",
   "scripts": {
@@ -31,5 +32,4 @@
     "typescript-eslint": "^8.56.1",
     "vite": "^8.0.0"
   }
-
 }

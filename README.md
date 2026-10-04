@@ -30,3 +30,9 @@ The engine uses simplified teaching models — fixed pickup and time-dial consta
 ## Roadmap
 
 See [`upcoming_features.md`](upcoming_features.md) for the v4.0 plan: a multivariable environmental lab with motor-starting studies, a CT saturation lab, a full log-log TCC plotter, and a sequence-of-events log. Changes are tracked in [`CHANGELOG.md`](CHANGELOG.md) under the [app versioning standard](docs/VERSIONING.md).
+
+## License
+
+AGPL-3.0 — see [LICENSE](LICENSE). If the AGPL's terms don't fit your use
+(e.g. embedding in a proprietary product or running it as a hosted service),
+commercial licenses are available — see [LICENSE-COMMERCIAL.md](LICENSE-COMMERCIAL.md).
