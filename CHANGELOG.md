@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Selectable standard system voltage levels per equipment tab: line
+  115/138/230/240/345/500 kV (240 kV = AESO/Alberta bulk system), bus
+  4.16–230 kV, transformer HV 13.8–230 kV, motor 480 V–13.8 kV (600 V first =
+  Canadian 600Y/347V, 480 V = US 480Y/277V; motor frame steps 200 HP at LV,
+  500 HP at MV). Engine stays per-unit; kV sets the base for MW telemetry.
+
 ## [0.1.0] - 2026-10-04
 
 First tagged release.

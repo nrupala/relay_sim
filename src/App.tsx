@@ -5,13 +5,14 @@ import { EquipmentView } from './components/EquipmentView';
 import { ControlPanel } from './components/ControlPanel';
 import { HelpSection } from './components/HelpSection';
 import { SequencePhasor } from './components/SequencePhasor';
+import { VOLTAGE_LEVELS, DEFAULT_VOLTAGE, formatVoltage } from './data/voltageLevels';
 
 // --- IEEE 242 / GE PROTECTION STANDARDS ---
 const EQUIPMENT_TYPES = {
-  MOTOR: { id: 'motor', label: 'Industrial Motor', relays: ['46', '49', '50', '51', '66'], nominalV: 4.16 },
-  TRANSFORMER: { id: 'transformer', label: 'Power Transformer', relays: ['87T', '51', '24', '63'], nominalV: 13.8 },
-  BUS: { id: 'bus', label: 'Main Busbar', relays: ['87B', '50', '51G'], nominalV: 13.8 },
-  LINE: { id: 'line', label: 'Transmission Line', relays: ['21', '67', '79', '50/51'], nominalV: 115 }
+  MOTOR: { id: 'motor', label: 'Industrial Motor', relays: ['46', '49', '50', '51', '66'] },
+  TRANSFORMER: { id: 'transformer', label: 'Power Transformer', relays: ['87T', '51', '24', '63'] },
+  BUS: { id: 'bus', label: 'Main Busbar', relays: ['87B', '50', '51G'] },
+  LINE: { id: 'line', label: 'Transmission Line', relays: ['21', '67', '79', '50/51'] }
 };
 
 export default function App() {
@@ -22,17 +23,20 @@ export default function App() {
     Iabc: [1.2, 1.0, 1.0],
     Iang: [0, -120, 120]
   });
+  // Selected system voltage per equipment tab (kV) — real standard classes.
+  const [voltages, setVoltages] = useState<Record<string, number>>(DEFAULT_VOLTAGE);
 
   // --- CORE ENGINE ---
   const sim = useMemo(() => new RelaySim(), []);
   const result = sim.run(fault as any);
   const isTripped = result?.trip;
   const config = EQUIPMENT_TYPES[activeTab.toUpperCase() as keyof typeof EQUIPMENT_TYPES];
+  const nominalV = voltages[activeTab]; // kV base for this tab
 
   // --- TELEMETRY ---
     const avgI = fault.Iabc.reduce((a, b) => a + b, 0) / 3;
   const powerFactor = 0.85;
-  const MW = isTripped ? 0 : (Math.sqrt(3) * config.nominalV * avgI * powerFactor).toFixed(2);
+  const MW = isTripped ? 0 : (Math.sqrt(3) * nominalV * avgI * powerFactor).toFixed(2);
  // Symmetrical compnents
 // --- SYMMETRICAL COMPONENTS (The "Invisible" Physics) ---
   const i1 = avgI; // Positive Sequence (Balanced Load)
@@ -128,7 +132,7 @@ export default function App() {
             </div>
             <div>
               <div style={{ fontSize: '10px', color: '#718096' }}>BUS VOLTAGE</div>
-              <div style={{ fontSize: '18px', fontWeight: 'bold' }}>{config.nominalV} kV</div>
+              <div style={{ fontSize: '18px', fontWeight: 'bold' }}>{formatVoltage(nominalV)}</div>
             </div>
             <div style={{ gridColumn: 'span 2', paddingTop: '10px', borderTop: '1px solid #2d3748' }}>
               <div style={{ fontSize: '10px', color: '#718096' }}>ACTIVE POWER</div>
@@ -144,6 +148,10 @@ export default function App() {
           availableRelays={config.relays}
           currentFault={fault}
           onUpdate={setFault}
+          equipmentId={activeTab}
+          voltageLevels={VOLTAGE_LEVELS[activeTab]}
+          selectedVoltage={nominalV}
+          onVoltageChange={(v) => setVoltages((prev) => ({ ...prev, [activeTab]: v }))}
         />
 
         <div style={{ marginTop: 'auto', fontSize: '11px', color: '#a0aec0', textAlign: 'center' }}>
