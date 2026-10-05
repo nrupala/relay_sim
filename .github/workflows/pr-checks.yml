@@ -1,0 +1,21 @@
+name: PR checks
+
+# Runs on the Aetheris self-hosted runner (ARM64) so PR verification
+# does not consume GitHub-hosted Actions minutes. The release workflow
+# stays on ubuntu-latest because it must publish the GitHub Release.
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: install + typecheck + build
+    runs-on: [self-hosted, Linux, ARM64]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
