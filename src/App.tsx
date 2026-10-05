@@ -5,6 +5,7 @@ import { EquipmentView } from './components/EquipmentView';
 import { ControlPanel } from './components/ControlPanel';
 import { HelpSection } from './components/HelpSection';
 import { SequencePhasor } from './components/SequencePhasor';
+import { version as appVersion } from '../package.json';
 import { VOLTAGE_LEVELS, DEFAULT_VOLTAGE, formatVoltage } from './data/voltageLevels';
 
 // --- IEEE 242 / GE PROTECTION STANDARDS ---
@@ -155,7 +156,7 @@ export default function App() {
         />
 
         <div style={{ marginTop: 'auto', fontSize: '11px', color: '#a0aec0', textAlign: 'center' }}>
-          RelaySim v3.0 • coordination Study
+          RelaySim v{appVersion} • coordination Study
         </div>
       </aside>
     </div>
