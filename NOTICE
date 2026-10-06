@@ -1,0 +1,10 @@
+relay_sim — Relay Fault Simulation Engine
+
+Owned by Nrupal Akolkar · Built with Muse by Meta
+
+An interactive training simulator for protective relaying: power-system faults
+and how protection relays respond. Built for learning and intuition.
+
+License: the package declares AGPL-3.0-only (see package.json). The LICENSE
+file is currently missing from the repo — flagged in the open portfolio
+certification PR; do not redistribute until he resolves it.

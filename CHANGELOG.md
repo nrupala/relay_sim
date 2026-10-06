@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Portfolio certification rollout: `CONTRIBUTING.md` (PR-flow discipline:
+  draft PR -> tests green -> owner merges; no direct pushes to `main`;
+  CHANGELOG Unreleased entry + semver bump per PR; releases tagged `vX.Y.Z`),
+  `NOTICE` (ownership/attribution). Version bumped 0.1.0 -> 0.1.1.
+
+### Added
 - Selectable standard system voltage levels per equipment tab: line
   115/138/230/240/345/500 kV (240 kV = AESO/Alberta bulk system), bus
   4.16–230 kV, transformer HV 13.8–230 kV, motor 480 V–13.8 kV (600 V first =
