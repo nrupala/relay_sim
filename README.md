@@ -36,3 +36,5 @@ See [`upcoming_features.md`](upcoming_features.md) for the v4.0 plan: a multivar
 AGPL-3.0 — see [LICENSE](LICENSE). If the AGPL's terms don't fit your use
 (e.g. embedding in a proprietary product or running it as a hosted service),
 commercial licenses are available — see [LICENSE-COMMERCIAL.md](LICENSE-COMMERCIAL.md).
+
+<!-- ci-baseline-probe -->
