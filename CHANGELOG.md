@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   4.16–230 kV, transformer HV 13.8–230 kV, motor 480 V–13.8 kV (600 V first =
   Canadian 600Y/347V, 480 V = US 480Y/277V; motor frame steps 200 HP at LV,
   500 HP at MV). Engine stays per-unit; kV sets the base for MW telemetry.
+- Documentation brought to the ASF-grade standard: `LICENSE` with the
+  canonical AGPL-3.0 text, a `NOTICE` attribution file, and
+  `CONTRIBUTING.md` covering setup, checks, pull requests, and the
+  versioning/release flow.
 
 ## [0.1.0] - 2026-10-04
 

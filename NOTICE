@@ -1,0 +1,14 @@
+relay_sim — Relay Fault Simulation Engine
+
+Owned by Nrupal Akolkar · Built with Muse by Meta
+
+Copyright (C) 2026 Nrupal Akolkar
+
+relay_sim is an interactive training simulator for protective relaying:
+power-system faults and how protection relays respond, with equipment
+models for motors, transformers, busbars, and transmission lines.
+
+This program is free software licensed under the GNU Affero General
+Public License v3.0 only (AGPL-3.0-only). See the LICENSE file for the
+full license text. Commercial licensing is also available — see the
+License section of README.md.
