@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+- Added `LICENSE-COMMERCIAL.md`: the commercial side of the dual license (owner decision 2026-10-04, reconstructed from the decision record — the original shipped in the v0.1.0 release PR but never landed on main).
+
+
 ### Added
 - Selectable standard system voltage levels per equipment tab: line
   115/138/230/240/345/500 kV (240 kV = AESO/Alberta bulk system), bus
