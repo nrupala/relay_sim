@@ -26,12 +26,20 @@ and the UI in `src/components/` with `src/App.tsx` wiring it together.
 
 ## Checks
 
-There is no automated test suite yet. The gates are:
+The gates are:
 
 ```bash
 npm run build     # TypeScript typecheck (tsc) + production build
 npm run lint      # ESLint
 ```
+
+The simulation engine also has an automated test suite
+(`tests/relay-sim.test.mjs`, Node's built-in runner) that runs fault
+scenarios against `RelaySim` headlessly and asserts trip/no-trip and
+operating times. The Tests workflow (`.github/workflows/tests.yml`) runs
+`npm run build` plus this suite on every push and pull request to `main`.
+To run it locally, `npm ci`, compile the engine exactly as that workflow
+does, then `node --test tests/relay-sim.test.mjs`. See `TEST-PLAN.md`.
 
 Both must pass before a change is merged. Every pull request to `main`
 runs the PR checks workflow (`.github/workflows/pr-checks.yml`), which
