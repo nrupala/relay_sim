@@ -1,0 +1,30 @@
+name: Tests
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Build (typecheck + production build)
+        run: npm run build
+      - name: Compile the simulation engine for testing
+        run: |
+          npx tsc src/lib/RelaySim.ts src/lib/faultRegistry.ts src/data/Registry.ts \
+            --outDir .test-dist --module commonjs --target es2022 --skipLibCheck
+          printf '{"type":"commonjs"}' > .test-dist/package.json
+      - name: Run the engine test suite
+        run: node --test tests/relay-sim.test.mjs
