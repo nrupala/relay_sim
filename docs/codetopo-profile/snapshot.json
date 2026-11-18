@@ -1,0 +1,4509 @@
+{
+  "schema_version": "2.0",
+  "profile_id": "code",
+  "profile_version": "1.0.0",
+  "graph_class": "truths",
+  "provenance_summary": {
+    "extracted_truth": 240
+  },
+  "nodes": [
+    {
+      "id": "external::(Math.sqrt(3) * currentV * avgI * powerFactor).toFixed",
+      "kind": "external",
+      "label": "(Math.sqrt(3) * currentV * avgI * powerFactor).toFixed",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::(Math.sqrt(3) * nominalV * avgI * powerFactor).toFixed",
+      "kind": "external",
+      "label": "(Math.sqrt(3) * nominalV * avgI * powerFactor).toFixed",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::(avgI/1.5).toFixed",
+      "kind": "external",
+      "label": "(avgI/1.5).toFixed",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::/^\\d+\\.\\d+\\.\\d+$/.test",
+      "kind": "external",
+      "label": "/^\\d+\\.\\d+\\.\\d+$/.test",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::@eslint/js",
+      "kind": "external",
+      "label": "@eslint/js",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::@vitejs/plugin-react",
+      "kind": "external",
+      "label": "@vitejs/plugin-react",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::Date",
+      "kind": "external",
+      "label": "Date",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::JSON.stringify",
+      "kind": "external",
+      "label": "JSON.stringify",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::Math.abs",
+      "kind": "external",
+      "label": "Math.abs",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::Math.max",
+      "kind": "external",
+      "label": "Math.max",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::Math.min",
+      "kind": "external",
+      "label": "Math.min",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::Math.pow",
+      "kind": "external",
+      "label": "Math.pow",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::Math.round",
+      "kind": "external",
+      "label": "Math.round",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::Math.sqrt",
+      "kind": "external",
+      "label": "Math.sqrt",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::Object.entries",
+      "kind": "external",
+      "label": "Object.entries",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::Object.keys",
+      "kind": "external",
+      "label": "Object.keys",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::Object.values",
+      "kind": "external",
+      "label": "Object.values",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::Object.values(EQUIPMENT_TYPES).map",
+      "kind": "external",
+      "label": "Object.values(EQUIPMENT_TYPES).map",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::Object.values(FAULT_REGISTRY).map",
+      "kind": "external",
+      "label": "Object.values(FAULT_REGISTRY).map",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::String.fromCharCode",
+      "kind": "external",
+      "label": "String.fromCharCode",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::['87T', '24', '63'].includes",
+      "kind": "external",
+      "label": "['87T', '24', '63'].includes",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::activeFault?.name.toLowerCase",
+      "kind": "external",
+      "label": "activeFault?.name.toLowerCase",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::activeRef.current.scrollIntoView",
+      "kind": "external",
+      "label": "activeRef.current.scrollIntoView",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::activeTab.toUpperCase",
+      "kind": "external",
+      "label": "activeTab.toUpperCase",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::assert.deepEqual",
+      "kind": "external",
+      "label": "assert.deepEqual",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::assert.equal",
+      "kind": "external",
+      "label": "assert.equal",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::assert.ok",
+      "kind": "external",
+      "label": "assert.ok",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::availableRelays.map",
+      "kind": "external",
+      "label": "availableRelays.map",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::avgI.toFixed",
+      "kind": "external",
+      "label": "avgI.toFixed",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::console.error",
+      "kind": "external",
+      "label": "console.error",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::console.log",
+      "kind": "external",
+      "label": "console.log",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::createRoot",
+      "kind": "external",
+      "label": "createRoot",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::createRoot(document.getElementById('root')!).render",
+      "kind": "external",
+      "label": "createRoot(document.getElementById('root')!).render",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::currentFault.Iabc.map",
+      "kind": "external",
+      "label": "currentFault.Iabc.map",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::defineConfig",
+      "kind": "external",
+      "label": "defineConfig",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::document.getElementById",
+      "kind": "external",
+      "label": "document.getElementById",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::eslint-plugin-react-hooks",
+      "kind": "external",
+      "label": "eslint-plugin-react-hooks",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::eslint-plugin-react-refresh",
+      "kind": "external",
+      "label": "eslint-plugin-react-refresh",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::eslint/config",
+      "kind": "external",
+      "label": "eslint/config",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::existsSync",
+      "kind": "external",
+      "label": "existsSync",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::fault.Iabc.reduce",
+      "kind": "external",
+      "label": "fault.Iabc.reduce",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::globalIgnores",
+      "kind": "external",
+      "label": "globalIgnores",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::globals",
+      "kind": "external",
+      "label": "globals",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::log.push",
+      "kind": "external",
+      "label": "log.push",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::mag.toFixed",
+      "kind": "external",
+      "label": "mag.toFixed",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::new Date().toISOString",
+      "kind": "external",
+      "label": "new Date().toISOString",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::node:assert/strict",
+      "kind": "external",
+      "label": "node:assert/strict",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::node:fs",
+      "kind": "external",
+      "label": "node:fs",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::node:module",
+      "kind": "external",
+      "label": "node:module",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::node:test",
+      "kind": "external",
+      "label": "node:test",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::onSelectFault",
+      "kind": "external",
+      "label": "onSelectFault",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::onUpdate",
+      "kind": "external",
+      "label": "onUpdate",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::onVoltageChange",
+      "kind": "external",
+      "label": "onVoltageChange",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::points.push",
+      "kind": "external",
+      "label": "points.push",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::process.exit",
+      "kind": "external",
+      "label": "process.exit",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::react",
+      "kind": "external",
+      "label": "react",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::react-dom/client",
+      "kind": "external",
+      "label": "react-dom/client",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::readFileSync",
+      "kind": "external",
+      "label": "readFileSync",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::relay_sim::package.json",
+      "kind": "external",
+      "label": "relay_sim::package.json",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::result.time.toFixed",
+      "kind": "external",
+      "label": "result.time.toFixed",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::setActiveTab",
+      "kind": "external",
+      "label": "setActiveTab",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::setShowHelp",
+      "kind": "external",
+      "label": "setShowHelp",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::setVoltages",
+      "kind": "external",
+      "label": "setVoltages",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::sim.run",
+      "kind": "external",
+      "label": "sim.run",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::src.includes",
+      "kind": "external",
+      "label": "src.includes",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::test",
+      "kind": "external",
+      "label": "test",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::typescript-eslint",
+      "kind": "external",
+      "label": "typescript-eslint",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::updatePhase",
+      "kind": "external",
+      "label": "updatePhase",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::useEffect",
+      "kind": "external",
+      "label": "useEffect",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::useMemo",
+      "kind": "external",
+      "label": "useMemo",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::useRef",
+      "kind": "external",
+      "label": "useRef",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::useState",
+      "kind": "external",
+      "label": "useState",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::vite",
+      "kind": "external",
+      "label": "vite",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::voltageLevels.map",
+      "kind": "external",
+      "label": "voltageLevels.map",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "external::writeFileSync",
+      "kind": "external",
+      "label": "writeFileSync",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim",
+      "kind": "package",
+      "label": "relay_sim",
+      "loc": {
+        "file": "",
+        "line": 0
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/CHANGELOG.md",
+      "kind": "file",
+      "label": "CHANGELOG.md",
+      "loc": {
+        "file": "CHANGELOG.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/CONTRIBUTING.md",
+      "kind": "file",
+      "label": "CONTRIBUTING.md",
+      "loc": {
+        "file": "CONTRIBUTING.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/LICENSE-COMMERCIAL.md",
+      "kind": "file",
+      "label": "LICENSE-COMMERCIAL.md",
+      "loc": {
+        "file": "LICENSE-COMMERCIAL.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/README.md",
+      "kind": "file",
+      "label": "README.md",
+      "loc": {
+        "file": "README.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/SECURITY.md",
+      "kind": "file",
+      "label": "SECURITY.md",
+      "loc": {
+        "file": "SECURITY.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/TERMS.md",
+      "kind": "file",
+      "label": "TERMS.md",
+      "loc": {
+        "file": "TERMS.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/TEST-PLAN.md",
+      "kind": "file",
+      "label": "TEST-PLAN.md",
+      "loc": {
+        "file": "TEST-PLAN.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/docs/VERSIONING.md",
+      "kind": "file",
+      "label": "docs/VERSIONING.md",
+      "loc": {
+        "file": "docs/VERSIONING.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/eslint.config.js",
+      "kind": "file",
+      "label": "eslint.config.js",
+      "loc": {
+        "file": "eslint.config.js",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/scripts/bump-version.mjs",
+      "kind": "file",
+      "label": "scripts/bump-version.mjs",
+      "loc": {
+        "file": "scripts/bump-version.mjs",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/App.tsx",
+      "kind": "file",
+      "label": "src/App.tsx",
+      "loc": {
+        "file": "src/App.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/components/ControlPanel.tsx",
+      "kind": "file",
+      "label": "src/components/ControlPanel.tsx",
+      "loc": {
+        "file": "src/components/ControlPanel.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/components/EquipmentStudy.tsx",
+      "kind": "file",
+      "label": "src/components/EquipmentStudy.tsx",
+      "loc": {
+        "file": "src/components/EquipmentStudy.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/components/EquipmentView.tsx",
+      "kind": "file",
+      "label": "src/components/EquipmentView.tsx",
+      "loc": {
+        "file": "src/components/EquipmentView.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/components/FaultSelector.tsx",
+      "kind": "file",
+      "label": "src/components/FaultSelector.tsx",
+      "loc": {
+        "file": "src/components/FaultSelector.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/components/HelpSection.tsx",
+      "kind": "file",
+      "label": "src/components/HelpSection.tsx",
+      "loc": {
+        "file": "src/components/HelpSection.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/components/PowerAnalyzer.tsx",
+      "kind": "file",
+      "label": "src/components/PowerAnalyzer.tsx",
+      "loc": {
+        "file": "src/components/PowerAnalyzer.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/components/SequencePhasor.tsx",
+      "kind": "file",
+      "label": "src/components/SequencePhasor.tsx",
+      "loc": {
+        "file": "src/components/SequencePhasor.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/components/TCCPlotter.tsx",
+      "kind": "file",
+      "label": "src/components/TCCPlotter.tsx",
+      "loc": {
+        "file": "src/components/TCCPlotter.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/data/Registry.ts",
+      "kind": "file",
+      "label": "src/data/Registry.ts",
+      "loc": {
+        "file": "src/data/Registry.ts",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/data/voltageLevels.ts",
+      "kind": "file",
+      "label": "src/data/voltageLevels.ts",
+      "loc": {
+        "file": "src/data/voltageLevels.ts",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/lib/RelaySim.ts",
+      "kind": "file",
+      "label": "src/lib/RelaySim.ts",
+      "loc": {
+        "file": "src/lib/RelaySim.ts",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/lib/faultRegistry.ts",
+      "kind": "file",
+      "label": "src/lib/faultRegistry.ts",
+      "loc": {
+        "file": "src/lib/faultRegistry.ts",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/src/main.tsx",
+      "kind": "file",
+      "label": "src/main.tsx",
+      "loc": {
+        "file": "src/main.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/tests/relay-sim.test.mjs",
+      "kind": "file",
+      "label": "tests/relay-sim.test.mjs",
+      "loc": {
+        "file": "tests/relay-sim.test.mjs",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/upcoming_features.md",
+      "kind": "file",
+      "label": "upcoming_features.md",
+      "loc": {
+        "file": "upcoming_features.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::/vite.config.ts",
+      "kind": "file",
+      "label": "vite.config.ts",
+      "loc": {
+        "file": "vite.config.ts",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::CHANGELOG",
+      "kind": "module",
+      "label": "relay_sim::CHANGELOG",
+      "loc": {
+        "file": "CHANGELOG.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::CHANGELOG::CHANGELOG",
+      "kind": "doc",
+      "label": "CHANGELOG",
+      "loc": {
+        "file": "CHANGELOG.md",
+        "line": 1
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::CONTRIBUTING",
+      "kind": "module",
+      "label": "relay_sim::CONTRIBUTING",
+      "loc": {
+        "file": "CONTRIBUTING.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::CONTRIBUTING::CONTRIBUTING",
+      "kind": "doc",
+      "label": "CONTRIBUTING",
+      "loc": {
+        "file": "CONTRIBUTING.md",
+        "line": 1
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::LICENSE-COMMERCIAL",
+      "kind": "module",
+      "label": "relay_sim::LICENSE-COMMERCIAL",
+      "loc": {
+        "file": "LICENSE-COMMERCIAL.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::LICENSE-COMMERCIAL::LICENSE-COMMERCIAL",
+      "kind": "doc",
+      "label": "LICENSE-COMMERCIAL",
+      "loc": {
+        "file": "LICENSE-COMMERCIAL.md",
+        "line": 1
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::README",
+      "kind": "module",
+      "label": "relay_sim::README",
+      "loc": {
+        "file": "README.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::README::README",
+      "kind": "doc",
+      "label": "README",
+      "loc": {
+        "file": "README.md",
+        "line": 1
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::SECURITY",
+      "kind": "module",
+      "label": "relay_sim::SECURITY",
+      "loc": {
+        "file": "SECURITY.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::SECURITY::SECURITY",
+      "kind": "doc",
+      "label": "SECURITY",
+      "loc": {
+        "file": "SECURITY.md",
+        "line": 1
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::TERMS",
+      "kind": "module",
+      "label": "relay_sim::TERMS",
+      "loc": {
+        "file": "TERMS.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::TERMS::TERMS",
+      "kind": "doc",
+      "label": "TERMS",
+      "loc": {
+        "file": "TERMS.md",
+        "line": 1
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::TEST-PLAN",
+      "kind": "module",
+      "label": "relay_sim::TEST-PLAN",
+      "loc": {
+        "file": "TEST-PLAN.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::TEST-PLAN::TEST-PLAN",
+      "kind": "doc",
+      "label": "TEST-PLAN",
+      "loc": {
+        "file": "TEST-PLAN.md",
+        "line": 1
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::docs::VERSIONING",
+      "kind": "module",
+      "label": "relay_sim::docs::VERSIONING",
+      "loc": {
+        "file": "docs/VERSIONING.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::docs::VERSIONING::VERSIONING",
+      "kind": "doc",
+      "label": "VERSIONING",
+      "loc": {
+        "file": "docs/VERSIONING.md",
+        "line": 1
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::eslint.config",
+      "kind": "module",
+      "label": "relay_sim::eslint.config",
+      "loc": {
+        "file": "eslint.config.js",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::scripts::bump-version.mjs",
+      "kind": "module",
+      "label": "relay_sim::scripts::bump-version.mjs",
+      "loc": {
+        "file": "scripts/bump-version.mjs",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::scripts::bump-version.mjs::cl",
+      "kind": "variable",
+      "label": "cl",
+      "loc": {
+        "file": "scripts/bump-version.mjs",
+        "line": 29
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 29,
+      "signature": "cl"
+    },
+    {
+      "id": "relay_sim::scripts::bump-version.mjs::log",
+      "kind": "variable",
+      "label": "log",
+      "loc": {
+        "file": "scripts/bump-version.mjs",
+        "line": 10
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 10,
+      "signature": "log"
+    },
+    {
+      "id": "relay_sim::scripts::bump-version.mjs::meta",
+      "kind": "variable",
+      "label": "meta",
+      "loc": {
+        "file": "scripts/bump-version.mjs",
+        "line": 20
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 20,
+      "signature": "meta"
+    },
+    {
+      "id": "relay_sim::scripts::bump-version.mjs::out",
+      "kind": "variable",
+      "label": "out",
+      "loc": {
+        "file": "scripts/bump-version.mjs",
+        "line": 23
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "src",
+        "ver"
+      ],
+      "end_line": 23,
+      "signature": "out"
+    },
+    {
+      "id": "relay_sim::scripts::bump-version.mjs::pkg",
+      "kind": "variable",
+      "label": "pkg",
+      "loc": {
+        "file": "scripts/bump-version.mjs",
+        "line": 13
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "JSON",
+        "readFileSync"
+      ],
+      "end_line": 13,
+      "signature": "pkg"
+    },
+    {
+      "id": "relay_sim::scripts::bump-version.mjs::prev",
+      "kind": "variable",
+      "label": "prev",
+      "loc": {
+        "file": "scripts/bump-version.mjs",
+        "line": 14
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "pkg"
+      ],
+      "end_line": 14,
+      "signature": "prev"
+    },
+    {
+      "id": "relay_sim::scripts::bump-version.mjs::src",
+      "kind": "variable",
+      "label": "src",
+      "loc": {
+        "file": "scripts/bump-version.mjs",
+        "line": 22
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "readFileSync",
+        "meta"
+      ],
+      "end_line": 22,
+      "signature": "src"
+    },
+    {
+      "id": "relay_sim::scripts::bump-version.mjs::today",
+      "kind": "variable",
+      "label": "today",
+      "loc": {
+        "file": "scripts/bump-version.mjs",
+        "line": 31
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "Date"
+      ],
+      "end_line": 31,
+      "signature": "today"
+    },
+    {
+      "id": "relay_sim::scripts::bump-version.mjs::ver",
+      "kind": "variable",
+      "label": "ver",
+      "loc": {
+        "file": "scripts/bump-version.mjs",
+        "line": 5
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "process"
+      ],
+      "end_line": 5,
+      "signature": "ver"
+    },
+    {
+      "id": "relay_sim::src::App",
+      "kind": "module",
+      "label": "relay_sim::src::App",
+      "loc": {
+        "file": "src/App.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::App::App",
+      "kind": "function",
+      "label": "App",
+      "loc": {
+        "file": "src/App.tsx",
+        "line": 19
+      },
+      "tier": "optional",
+      "defines": [
+        "activeTab",
+        "setActiveTab",
+        "showHelp",
+        "setShowHelp",
+        "fault",
+        "setFault",
+        "voltages",
+        "setVoltages",
+        "sim",
+        "result",
+        "isTripped",
+        "config",
+        "nominalV",
+        "avgI",
+        "a",
+        "b",
+        "powerFactor",
+        "MW",
+        "i1",
+        "i2",
+        "i0"
+      ],
+      "refs": [
+        "useState",
+        "DEFAULT_VOLTAGE",
+        "useMemo",
+        "RelaySim",
+        "EQUIPMENT_TYPES",
+        "Math"
+      ],
+      "end_line": 164,
+      "signature": "function App()",
+      "decisions": 12
+    },
+    {
+      "id": "relay_sim::src::App::EQUIPMENT_TYPES",
+      "kind": "variable",
+      "label": "EQUIPMENT_TYPES",
+      "loc": {
+        "file": "src/App.tsx",
+        "line": 12
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 17,
+      "signature": "EQUIPMENT_TYPES"
+    },
+    {
+      "id": "relay_sim::src::components::ControlPanel",
+      "kind": "module",
+      "label": "relay_sim::src::components::ControlPanel",
+      "loc": {
+        "file": "src/components/ControlPanel.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "kind": "variable",
+      "label": "ControlPanel",
+      "loc": {
+        "file": "src/components/ControlPanel.tsx",
+        "line": 19
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "currentFault",
+        "onUpdate"
+      ],
+      "end_line": 146,
+      "signature": "ControlPanel"
+    },
+    {
+      "id": "relay_sim::src::components::ControlPanel::ControlPanelProps",
+      "kind": "interface",
+      "label": "ControlPanelProps",
+      "loc": {
+        "file": "src/components/ControlPanel.tsx",
+        "line": 6
+      },
+      "tier": "recommended",
+      "defines": [],
+      "refs": [
+        "updatedFault",
+        "v"
+      ],
+      "end_line": 17,
+      "signature": "interface ControlPanelProps"
+    },
+    {
+      "id": "relay_sim::src::components::EquipmentStudy",
+      "kind": "module",
+      "label": "relay_sim::src::components::EquipmentStudy",
+      "loc": {
+        "file": "src/components/EquipmentStudy.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::components::EquipmentStudy::EquipmentStudy",
+      "kind": "variable",
+      "label": "EquipmentStudy",
+      "loc": {
+        "file": "src/components/EquipmentStudy.tsx",
+        "line": 35
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 146,
+      "signature": "EquipmentStudy"
+    },
+    {
+      "id": "relay_sim::src::components::EquipmentStudy::EquipmentStudyProps",
+      "kind": "interface",
+      "label": "EquipmentStudyProps",
+      "loc": {
+        "file": "src/components/EquipmentStudy.tsx",
+        "line": 4
+      },
+      "tier": "recommended",
+      "defines": [],
+      "refs": [],
+      "end_line": 11,
+      "signature": "interface EquipmentStudyProps"
+    },
+    {
+      "id": "relay_sim::src::components::EquipmentStudy::renderEquipment",
+      "kind": "variable",
+      "label": "renderEquipment",
+      "loc": {
+        "file": "src/components/EquipmentStudy.tsx",
+        "line": 13
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "activeFault"
+      ],
+      "end_line": 33,
+      "signature": "renderEquipment"
+    },
+    {
+      "id": "relay_sim::src::components::EquipmentView",
+      "kind": "module",
+      "label": "relay_sim::src::components::EquipmentView",
+      "loc": {
+        "file": "src/components/EquipmentView.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::components::EquipmentView::EquipmentView",
+      "kind": "variable",
+      "label": "EquipmentView",
+      "loc": {
+        "file": "src/components/EquipmentView.tsx",
+        "line": 2
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "type"
+      ],
+      "end_line": 84,
+      "signature": "EquipmentView"
+    },
+    {
+      "id": "relay_sim::src::components::FaultSelector",
+      "kind": "module",
+      "label": "relay_sim::src::components::FaultSelector",
+      "loc": {
+        "file": "src/components/FaultSelector.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::components::FaultSelector::FaultSelector",
+      "kind": "variable",
+      "label": "FaultSelector",
+      "loc": {
+        "file": "src/components/FaultSelector.tsx",
+        "line": 10
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 39,
+      "signature": "FaultSelector"
+    },
+    {
+      "id": "relay_sim::src::components::FaultSelector::FaultSelectorProps",
+      "kind": "interface",
+      "label": "FaultSelectorProps",
+      "loc": {
+        "file": "src/components/FaultSelector.tsx",
+        "line": 5
+      },
+      "tier": "recommended",
+      "defines": [],
+      "refs": [
+        "code"
+      ],
+      "end_line": 8,
+      "signature": "interface FaultSelectorProps"
+    },
+    {
+      "id": "relay_sim::src::components::HelpSection",
+      "kind": "module",
+      "label": "relay_sim::src::components::HelpSection",
+      "loc": {
+        "file": "src/components/HelpSection.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::components::HelpSection::HelpSection",
+      "kind": "variable",
+      "label": "HelpSection",
+      "loc": {
+        "file": "src/components/HelpSection.tsx",
+        "line": 5
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "useRef",
+        "useEffect",
+        "activeFaultCode"
+      ],
+      "end_line": 85,
+      "signature": "HelpSection"
+    },
+    {
+      "id": "relay_sim::src::components::PowerAnalyzer",
+      "kind": "module",
+      "label": "relay_sim::src::components::PowerAnalyzer",
+      "loc": {
+        "file": "src/components/PowerAnalyzer.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::components::PowerAnalyzer::PowerAnalyzer",
+      "kind": "variable",
+      "label": "PowerAnalyzer",
+      "loc": {
+        "file": "src/components/PowerAnalyzer.tsx",
+        "line": 2
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "fault",
+        "isTripped",
+        "Math"
+      ],
+      "end_line": 27,
+      "signature": "PowerAnalyzer"
+    },
+    {
+      "id": "relay_sim::src::components::SequencePhasor",
+      "kind": "module",
+      "label": "relay_sim::src::components::SequencePhasor",
+      "loc": {
+        "file": "src/components/SequencePhasor.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::components::SequencePhasor::SequencePhasor",
+      "kind": "variable",
+      "label": "SequencePhasor",
+      "loc": {
+        "file": "src/components/SequencePhasor.tsx",
+        "line": 2
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 25,
+      "signature": "SequencePhasor"
+    },
+    {
+      "id": "relay_sim::src::components::TCCPlotter",
+      "kind": "module",
+      "label": "relay_sim::src::components::TCCPlotter",
+      "loc": {
+        "file": "src/components/TCCPlotter.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::components::TCCPlotter::TCCPlotter",
+      "kind": "variable",
+      "label": "TCCPlotter",
+      "loc": {
+        "file": "src/components/TCCPlotter.tsx",
+        "line": 13
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 22,
+      "signature": "TCCPlotter"
+    },
+    {
+      "id": "relay_sim::src::components::TCCPlotter::generateCurvePoints",
+      "kind": "variable",
+      "label": "generateCurvePoints",
+      "loc": {
+        "file": "src/components/TCCPlotter.tsx",
+        "line": 2
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "curveConstants",
+        "A",
+        "Math",
+        "p",
+        "B"
+      ],
+      "end_line": 11,
+      "signature": "generateCurvePoints"
+    },
+    {
+      "id": "relay_sim::src::data::Registry",
+      "kind": "module",
+      "label": "relay_sim::src::data::Registry",
+      "loc": {
+        "file": "src/data/Registry.ts",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::data::Registry::EQUIPMENT_TYPES",
+      "kind": "variable",
+      "label": "EQUIPMENT_TYPES",
+      "loc": {
+        "file": "src/data/Registry.ts",
+        "line": 1
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 20,
+      "signature": "EQUIPMENT_TYPES"
+    },
+    {
+      "id": "relay_sim::src::data::voltageLevels",
+      "kind": "module",
+      "label": "relay_sim::src::data::voltageLevels",
+      "loc": {
+        "file": "src/data/voltageLevels.ts",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::data::voltageLevels::DEFAULT_VOLTAGE",
+      "kind": "variable",
+      "label": "DEFAULT_VOLTAGE",
+      "loc": {
+        "file": "src/data/voltageLevels.ts",
+        "line": 17
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 22,
+      "signature": "DEFAULT_VOLTAGE: Record<string, number>"
+    },
+    {
+      "id": "relay_sim::src::data::voltageLevels::VOLTAGE_LEVELS",
+      "kind": "variable",
+      "label": "VOLTAGE_LEVELS",
+      "loc": {
+        "file": "src/data/voltageLevels.ts",
+        "line": 10
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 15,
+      "signature": "VOLTAGE_LEVELS: Record<string, number[]>"
+    },
+    {
+      "id": "relay_sim::src::data::voltageLevels::formatVoltage",
+      "kind": "variable",
+      "label": "formatVoltage",
+      "loc": {
+        "file": "src/data/voltageLevels.ts",
+        "line": 24
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "Math"
+      ],
+      "end_line": 25,
+      "signature": "formatVoltage"
+    },
+    {
+      "id": "relay_sim::src::data::voltageLevels::motorRating",
+      "kind": "variable",
+      "label": "motorRating",
+      "loc": {
+        "file": "src/data/voltageLevels.ts",
+        "line": 29
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 29,
+      "signature": "motorRating"
+    },
+    {
+      "id": "relay_sim::src::lib::RelaySim",
+      "kind": "module",
+      "label": "relay_sim::src::lib::RelaySim",
+      "loc": {
+        "file": "src/lib/RelaySim.ts",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::lib::RelaySim::RelaySim",
+      "kind": "class",
+      "label": "RelaySim",
+      "loc": {
+        "file": "src/lib/RelaySim.ts",
+        "line": 4
+      },
+      "tier": "recommended",
+      "defines": [],
+      "refs": [],
+      "end_line": 45,
+      "signature": "class RelaySim"
+    },
+    {
+      "id": "relay_sim::src::lib::RelaySim::RelaySim::run",
+      "kind": "method",
+      "label": "run",
+      "loc": {
+        "file": "src/lib/RelaySim.ts",
+        "line": 5
+      },
+      "tier": "optional",
+      "defines": [
+        "fault",
+        "maxI",
+        "pickup",
+        "TD",
+        "i0",
+        "i2",
+        "M",
+        "Z"
+      ],
+      "refs": [
+        "Math",
+        "Iabc",
+        "type",
+        "Infinity",
+        "V",
+        "f",
+        "Iang"
+      ],
+      "end_line": 44,
+      "signature": "run(fault: { type: string, Iabc: number[], Iang: number[], V?: number, f?: number })",
+      "decisions": 12
+    },
+    {
+      "id": "relay_sim::src::lib::faultRegistry",
+      "kind": "module",
+      "label": "relay_sim::src::lib::faultRegistry",
+      "loc": {
+        "file": "src/lib/faultRegistry.ts",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::src::lib::faultRegistry::FAULT_REGISTRY",
+      "kind": "variable",
+      "label": "FAULT_REGISTRY",
+      "loc": {
+        "file": "src/lib/faultRegistry.ts",
+        "line": 3
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 23,
+      "signature": "FAULT_REGISTRY: Record<string, any>"
+    },
+    {
+      "id": "relay_sim::src::lib::faultRegistry::FaultTypeCode",
+      "kind": "class",
+      "label": "FaultTypeCode",
+      "loc": {
+        "file": "src/lib/faultRegistry.ts",
+        "line": 1
+      },
+      "tier": "recommended",
+      "defines": [],
+      "refs": [],
+      "end_line": 1,
+      "signature": "type FaultTypeCode"
+    },
+    {
+      "id": "relay_sim::src::main",
+      "kind": "module",
+      "label": "relay_sim::src::main",
+      "loc": {
+        "file": "src/main.tsx",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::tests::relay-sim.test.mjs",
+      "kind": "module",
+      "label": "relay_sim::tests::relay-sim.test.mjs",
+      "loc": {
+        "file": "tests/relay-sim.test.mjs",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::tests::relay-sim.test.mjs::atPickup",
+      "kind": "variable",
+      "label": "atPickup",
+      "loc": {
+        "file": "tests/relay-sim.test.mjs",
+        "line": 30
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "sim",
+        "balanced"
+      ],
+      "end_line": 30,
+      "signature": "atPickup"
+    },
+    {
+      "id": "relay_sim::tests::relay-sim.test.mjs::balanced",
+      "kind": "variable",
+      "label": "balanced",
+      "loc": {
+        "file": "tests/relay-sim.test.mjs",
+        "line": 17
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [],
+      "end_line": 17,
+      "signature": "balanced"
+    },
+    {
+      "id": "relay_sim::tests::relay-sim.test.mjs::r",
+      "kind": "variable",
+      "label": "r",
+      "loc": {
+        "file": "tests/relay-sim.test.mjs",
+        "line": 26
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "sim",
+        "balanced"
+      ],
+      "end_line": 26,
+      "signature": "r"
+    },
+    {
+      "id": "relay_sim::tests::relay-sim.test.mjs::require",
+      "kind": "variable",
+      "label": "require",
+      "loc": {
+        "file": "tests/relay-sim.test.mjs",
+        "line": 11
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "createRequire"
+      ],
+      "end_line": 11,
+      "signature": "require"
+    },
+    {
+      "id": "relay_sim::tests::relay-sim.test.mjs::sim",
+      "kind": "variable",
+      "label": "sim",
+      "loc": {
+        "file": "tests/relay-sim.test.mjs",
+        "line": 16
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": [
+        "RelaySim"
+      ],
+      "end_line": 16,
+      "signature": "sim"
+    },
+    {
+      "id": "relay_sim::upcoming_features",
+      "kind": "module",
+      "label": "relay_sim::upcoming_features",
+      "loc": {
+        "file": "upcoming_features.md",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::upcoming_features::upcoming_features",
+      "kind": "doc",
+      "label": "upcoming_features",
+      "loc": {
+        "file": "upcoming_features.md",
+        "line": 1
+      },
+      "tier": "optional",
+      "defines": [],
+      "refs": []
+    },
+    {
+      "id": "relay_sim::vite.config",
+      "kind": "module",
+      "label": "relay_sim::vite.config",
+      "loc": {
+        "file": "vite.config.ts",
+        "line": 1
+      },
+      "tier": "core",
+      "defines": [],
+      "refs": []
+    }
+  ],
+  "edges": [
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::CHANGELOG",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::CONTRIBUTING",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::LICENSE-COMMERCIAL",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::README",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::SECURITY",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::TERMS",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::TEST-PLAN",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::docs::VERSIONING",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::eslint.config",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::scripts::bump-version.mjs",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::App",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::components::ControlPanel",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::components::EquipmentStudy",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::components::EquipmentView",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::components::FaultSelector",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::components::HelpSection",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::components::PowerAnalyzer",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::components::SequencePhasor",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::components::TCCPlotter",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::data::Registry",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::data::voltageLevels",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::lib::RelaySim",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::lib::faultRegistry",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::src::main",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::tests::relay-sim.test.mjs",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::upcoming_features",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim",
+      "to": "relay_sim::vite.config",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/CHANGELOG.md",
+      "to": "relay_sim::CHANGELOG::CHANGELOG",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/CONTRIBUTING.md",
+      "to": "relay_sim::CONTRIBUTING::CONTRIBUTING",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/LICENSE-COMMERCIAL.md",
+      "to": "relay_sim::LICENSE-COMMERCIAL::LICENSE-COMMERCIAL",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/README.md",
+      "to": "relay_sim::README::README",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/SECURITY.md",
+      "to": "relay_sim::SECURITY::SECURITY",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/TERMS.md",
+      "to": "relay_sim::TERMS::TERMS",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/TEST-PLAN.md",
+      "to": "relay_sim::TEST-PLAN::TEST-PLAN",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/docs/VERSIONING.md",
+      "to": "relay_sim::docs::VERSIONING::VERSIONING",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/scripts/bump-version.mjs",
+      "to": "relay_sim::scripts::bump-version.mjs::cl",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/scripts/bump-version.mjs",
+      "to": "relay_sim::scripts::bump-version.mjs::log",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/scripts/bump-version.mjs",
+      "to": "relay_sim::scripts::bump-version.mjs::meta",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/scripts/bump-version.mjs",
+      "to": "relay_sim::scripts::bump-version.mjs::out",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/scripts/bump-version.mjs",
+      "to": "relay_sim::scripts::bump-version.mjs::pkg",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/scripts/bump-version.mjs",
+      "to": "relay_sim::scripts::bump-version.mjs::prev",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/scripts/bump-version.mjs",
+      "to": "relay_sim::scripts::bump-version.mjs::src",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/scripts/bump-version.mjs",
+      "to": "relay_sim::scripts::bump-version.mjs::today",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/scripts/bump-version.mjs",
+      "to": "relay_sim::scripts::bump-version.mjs::ver",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/App.tsx",
+      "to": "relay_sim::src::App::App",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/App.tsx",
+      "to": "relay_sim::src::App::EQUIPMENT_TYPES",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/ControlPanel.tsx",
+      "to": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/ControlPanel.tsx",
+      "to": "relay_sim::src::components::ControlPanel::ControlPanelProps",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/EquipmentStudy.tsx",
+      "to": "relay_sim::src::components::EquipmentStudy::EquipmentStudy",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/EquipmentStudy.tsx",
+      "to": "relay_sim::src::components::EquipmentStudy::EquipmentStudyProps",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/EquipmentStudy.tsx",
+      "to": "relay_sim::src::components::EquipmentStudy::renderEquipment",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/EquipmentView.tsx",
+      "to": "relay_sim::src::components::EquipmentView::EquipmentView",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/FaultSelector.tsx",
+      "to": "relay_sim::src::components::FaultSelector::FaultSelector",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/FaultSelector.tsx",
+      "to": "relay_sim::src::components::FaultSelector::FaultSelectorProps",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/HelpSection.tsx",
+      "to": "relay_sim::src::components::HelpSection::HelpSection",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/PowerAnalyzer.tsx",
+      "to": "relay_sim::src::components::PowerAnalyzer::PowerAnalyzer",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/SequencePhasor.tsx",
+      "to": "relay_sim::src::components::SequencePhasor::SequencePhasor",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/TCCPlotter.tsx",
+      "to": "relay_sim::src::components::TCCPlotter::TCCPlotter",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/components/TCCPlotter.tsx",
+      "to": "relay_sim::src::components::TCCPlotter::generateCurvePoints",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/data/Registry.ts",
+      "to": "relay_sim::src::data::Registry::EQUIPMENT_TYPES",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/data/voltageLevels.ts",
+      "to": "relay_sim::src::data::voltageLevels::DEFAULT_VOLTAGE",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/data/voltageLevels.ts",
+      "to": "relay_sim::src::data::voltageLevels::VOLTAGE_LEVELS",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/data/voltageLevels.ts",
+      "to": "relay_sim::src::data::voltageLevels::formatVoltage",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/data/voltageLevels.ts",
+      "to": "relay_sim::src::data::voltageLevels::motorRating",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/lib/RelaySim.ts",
+      "to": "relay_sim::src::lib::RelaySim::RelaySim",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/lib/RelaySim.ts",
+      "to": "relay_sim::src::lib::RelaySim::RelaySim::run",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/lib/faultRegistry.ts",
+      "to": "relay_sim::src::lib::faultRegistry::FAULT_REGISTRY",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/src/lib/faultRegistry.ts",
+      "to": "relay_sim::src::lib::faultRegistry::FaultTypeCode",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/tests/relay-sim.test.mjs",
+      "to": "relay_sim::tests::relay-sim.test.mjs::atPickup",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/tests/relay-sim.test.mjs",
+      "to": "relay_sim::tests::relay-sim.test.mjs::balanced",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/tests/relay-sim.test.mjs",
+      "to": "relay_sim::tests::relay-sim.test.mjs::r",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/tests/relay-sim.test.mjs",
+      "to": "relay_sim::tests::relay-sim.test.mjs::require",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/tests/relay-sim.test.mjs",
+      "to": "relay_sim::tests::relay-sim.test.mjs::sim",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::/upcoming_features.md",
+      "to": "relay_sim::upcoming_features::upcoming_features",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::CHANGELOG",
+      "to": "relay_sim::/CHANGELOG.md",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::CONTRIBUTING",
+      "to": "relay_sim::/CONTRIBUTING.md",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::LICENSE-COMMERCIAL",
+      "to": "relay_sim::/LICENSE-COMMERCIAL.md",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::README",
+      "to": "relay_sim::/README.md",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::SECURITY",
+      "to": "relay_sim::/SECURITY.md",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::TERMS",
+      "to": "relay_sim::/TERMS.md",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::TEST-PLAN",
+      "to": "relay_sim::/TEST-PLAN.md",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::docs::VERSIONING",
+      "to": "relay_sim::/docs/VERSIONING.md",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::eslint.config",
+      "to": "external::@eslint/js",
+      "kind": "imports",
+      "line": 1,
+      "attrs": {
+        "bindings": [
+          "js"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::eslint.config",
+      "to": "external::defineConfig",
+      "kind": "calls",
+      "line": 8,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::eslint.config",
+      "to": "external::eslint-plugin-react-hooks",
+      "kind": "imports",
+      "line": 3,
+      "attrs": {
+        "bindings": [
+          "reactHooks"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::eslint.config",
+      "to": "external::eslint-plugin-react-refresh",
+      "kind": "imports",
+      "line": 4,
+      "attrs": {
+        "bindings": [
+          "reactRefresh"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::eslint.config",
+      "to": "external::eslint/config",
+      "kind": "imports",
+      "line": 6,
+      "attrs": {
+        "bindings": [
+          "defineConfig",
+          "globalIgnores"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::eslint.config",
+      "to": "external::globalIgnores",
+      "kind": "calls",
+      "line": 9,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::eslint.config",
+      "to": "external::globals",
+      "kind": "imports",
+      "line": 2,
+      "attrs": {
+        "bindings": [
+          "globals"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::eslint.config",
+      "to": "external::typescript-eslint",
+      "kind": "imports",
+      "line": 5,
+      "attrs": {
+        "bindings": [
+          "tseslint"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::eslint.config",
+      "to": "relay_sim::/eslint.config.js",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs",
+      "to": "external::/^\\d+\\.\\d+\\.\\d+$/.test",
+      "kind": "calls",
+      "line": 6,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs",
+      "to": "external::JSON.stringify",
+      "kind": "calls",
+      "line": 16,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs",
+      "to": "external::console.error",
+      "kind": "calls",
+      "line": 7,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs",
+      "to": "external::console.log",
+      "kind": "calls",
+      "line": 41,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs",
+      "to": "external::existsSync",
+      "kind": "calls",
+      "line": 21,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs",
+      "to": "external::log.push",
+      "kind": "calls",
+      "line": 17,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs",
+      "to": "external::node:fs",
+      "kind": "imports",
+      "line": 3,
+      "attrs": {
+        "bindings": [
+          "existsSync",
+          "readFileSync",
+          "writeFileSync"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs",
+      "to": "external::process.exit",
+      "kind": "calls",
+      "line": 8,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs",
+      "to": "external::src.includes",
+      "kind": "calls",
+      "line": 33,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs",
+      "to": "external::writeFileSync",
+      "kind": "calls",
+      "line": 16,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs",
+      "to": "relay_sim::/scripts/bump-version.mjs",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs::out",
+      "to": "relay_sim::scripts::bump-version.mjs::src",
+      "kind": "reads",
+      "line": 23,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs::out",
+      "to": "relay_sim::scripts::bump-version.mjs::ver",
+      "kind": "reads",
+      "line": 23,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs::pkg",
+      "to": "external::readFileSync",
+      "kind": "calls",
+      "line": 13,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs::pkg",
+      "to": "external::readFileSync",
+      "kind": "reads",
+      "line": 13,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs::prev",
+      "to": "relay_sim::scripts::bump-version.mjs::pkg",
+      "kind": "reads",
+      "line": 14,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs::src",
+      "to": "external::readFileSync",
+      "kind": "reads",
+      "line": 22,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs::src",
+      "to": "relay_sim::scripts::bump-version.mjs::meta",
+      "kind": "reads",
+      "line": 22,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs::today",
+      "to": "external::Date",
+      "kind": "calls",
+      "line": 31,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs::today",
+      "to": "external::Date",
+      "kind": "reads",
+      "line": 31,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::scripts::bump-version.mjs::today",
+      "to": "external::new Date().toISOString",
+      "kind": "calls",
+      "line": 31,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App",
+      "to": "external::react",
+      "kind": "imports",
+      "line": 1,
+      "attrs": {
+        "bindings": [
+          "useMemo",
+          "useState"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::App",
+      "to": "external::relay_sim::package.json",
+      "kind": "imports",
+      "line": 8,
+      "attrs": {
+        "bindings": [
+          "appVersion"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::App",
+      "to": "relay_sim::/src/App.tsx",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App",
+      "to": "relay_sim::src::components::ControlPanel",
+      "kind": "imports",
+      "line": 5,
+      "attrs": {
+        "bindings": [
+          "ControlPanel"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::App",
+      "to": "relay_sim::src::components::EquipmentView",
+      "kind": "imports",
+      "line": 4,
+      "attrs": {
+        "bindings": [
+          "EquipmentView"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::App",
+      "to": "relay_sim::src::components::HelpSection",
+      "kind": "imports",
+      "line": 6,
+      "attrs": {
+        "bindings": [
+          "HelpSection"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::App",
+      "to": "relay_sim::src::components::SequencePhasor",
+      "kind": "imports",
+      "line": 7,
+      "attrs": {
+        "bindings": [
+          "SequencePhasor"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::App",
+      "to": "relay_sim::src::data::voltageLevels",
+      "kind": "imports",
+      "line": 9,
+      "attrs": {
+        "bindings": [
+          "DEFAULT_VOLTAGE",
+          "VOLTAGE_LEVELS",
+          "formatVoltage"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::App",
+      "to": "relay_sim::src::lib::RelaySim",
+      "kind": "imports",
+      "line": 2,
+      "attrs": {
+        "bindings": [
+          "RelaySim"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::App",
+      "to": "relay_sim::src::lib::faultRegistry",
+      "kind": "imports",
+      "line": 3,
+      "attrs": {
+        "bindings": [
+          "FAULT_REGISTRY"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::(Math.sqrt(3) * nominalV * avgI * powerFactor).toFixed",
+      "kind": "calls",
+      "line": 40,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::(avgI/1.5).toFixed",
+      "kind": "calls",
+      "line": 106,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::Math.abs",
+      "kind": "calls",
+      "line": 45,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::Math.max",
+      "kind": "calls",
+      "line": 44,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::Math.min",
+      "kind": "calls",
+      "line": 44,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::Math.sqrt",
+      "kind": "calls",
+      "line": 40,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::Object.values",
+      "kind": "calls",
+      "line": 61,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::Object.values(EQUIPMENT_TYPES).map",
+      "kind": "calls",
+      "line": 61,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::activeTab.toUpperCase",
+      "kind": "calls",
+      "line": 34,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::avgI.toFixed",
+      "kind": "calls",
+      "line": 132,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::fault.Iabc.reduce",
+      "kind": "calls",
+      "line": 38,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::result.time.toFixed",
+      "kind": "calls",
+      "line": 106,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::setActiveTab",
+      "kind": "calls",
+      "line": 64,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::setActiveTab",
+      "kind": "defines",
+      "line": 19,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::setShowHelp",
+      "kind": "calls",
+      "line": 64,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::setShowHelp",
+      "kind": "defines",
+      "line": 19,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::setVoltages",
+      "kind": "calls",
+      "line": 155,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::setVoltages",
+      "kind": "defines",
+      "line": 19,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::sim.run",
+      "kind": "calls",
+      "line": 32,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::useMemo",
+      "kind": "calls",
+      "line": 31,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::useMemo",
+      "kind": "reads",
+      "line": 19,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::useState",
+      "kind": "calls",
+      "line": 20,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "external::useState",
+      "kind": "reads",
+      "line": 19,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "relay_sim::src::App::EQUIPMENT_TYPES",
+      "kind": "reads",
+      "line": 19,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "relay_sim::src::data::voltageLevels::DEFAULT_VOLTAGE",
+      "kind": "reads",
+      "line": 19,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "relay_sim::src::data::voltageLevels::formatVoltage",
+      "kind": "calls",
+      "line": 136,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "relay_sim::src::lib::RelaySim::RelaySim",
+      "kind": "calls",
+      "line": 31,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "relay_sim::src::lib::RelaySim::RelaySim",
+      "kind": "reads",
+      "line": 19,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::App::App",
+      "to": "relay_sim::tests::relay-sim.test.mjs::sim",
+      "kind": "defines",
+      "line": 19,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel",
+      "to": "external::react",
+      "kind": "imports",
+      "line": 2,
+      "attrs": {
+        "bindings": [
+          "React"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel",
+      "to": "relay_sim::/src/components/ControlPanel.tsx",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel",
+      "to": "relay_sim::src::data::voltageLevels",
+      "kind": "imports",
+      "line": 4,
+      "attrs": {
+        "bindings": [
+          "formatVoltage",
+          "motorRating"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel",
+      "to": "relay_sim::src::lib::faultRegistry",
+      "kind": "imports",
+      "line": 3,
+      "attrs": {
+        "bindings": [
+          "FAULT_REGISTRY"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "to": "external::String.fromCharCode",
+      "kind": "calls",
+      "line": 73,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "to": "external::availableRelays.map",
+      "kind": "calls",
+      "line": 113,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "to": "external::currentFault.Iabc.map",
+      "kind": "calls",
+      "line": 69,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "to": "external::mag.toFixed",
+      "kind": "calls",
+      "line": 76,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "to": "external::onUpdate",
+      "kind": "calls",
+      "line": 26,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "to": "external::onUpdate",
+      "kind": "reads",
+      "line": 19,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "to": "external::onVoltageChange",
+      "kind": "calls",
+      "line": 39,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "to": "external::updatePhase",
+      "kind": "calls",
+      "line": 86,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "to": "external::voltageLevels.map",
+      "kind": "calls",
+      "line": 52,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "to": "relay_sim::src::data::voltageLevels::formatVoltage",
+      "kind": "calls",
+      "line": 54,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+      "to": "relay_sim::src::data::voltageLevels::motorRating",
+      "kind": "calls",
+      "line": 54,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::EquipmentStudy",
+      "to": "external::react",
+      "kind": "imports",
+      "line": 2,
+      "attrs": {
+        "bindings": [
+          "React"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::components::EquipmentStudy",
+      "to": "relay_sim::/src/components/EquipmentStudy.tsx",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::EquipmentStudy::EquipmentStudy",
+      "to": "external::activeFault?.name.toLowerCase",
+      "kind": "calls",
+      "line": 137,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::EquipmentStudy::renderEquipment",
+      "to": "external::['87T', '24', '63'].includes",
+      "kind": "calls",
+      "line": 14,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::EquipmentView",
+      "to": "relay_sim::/src/components/EquipmentView.tsx",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::FaultSelector",
+      "to": "relay_sim::/src/components/FaultSelector.tsx",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::FaultSelector",
+      "to": "relay_sim::src::lib::faultRegistry",
+      "kind": "imports",
+      "line": 2,
+      "attrs": {
+        "bindings": [
+          "FAULT_REGISTRY",
+          "FaultTypeCode"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::components::FaultSelector::FaultSelector",
+      "to": "external::Object.values",
+      "kind": "calls",
+      "line": 31,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::FaultSelector::FaultSelector",
+      "to": "external::Object.values(FAULT_REGISTRY).map",
+      "kind": "calls",
+      "line": 31,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::FaultSelector::FaultSelector",
+      "to": "external::onSelectFault",
+      "kind": "calls",
+      "line": 18,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::HelpSection",
+      "to": "external::react",
+      "kind": "imports",
+      "line": 2,
+      "attrs": {
+        "bindings": [
+          "useEffect",
+          "useRef"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::components::HelpSection",
+      "to": "relay_sim::/src/components/HelpSection.tsx",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::HelpSection",
+      "to": "relay_sim::src::lib::faultRegistry",
+      "kind": "imports",
+      "line": 1,
+      "attrs": {
+        "bindings": [
+          "FAULT_REGISTRY"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::components::HelpSection::HelpSection",
+      "to": "external::Object.values",
+      "kind": "calls",
+      "line": 24,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::HelpSection::HelpSection",
+      "to": "external::Object.values(FAULT_REGISTRY).map",
+      "kind": "calls",
+      "line": 24,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::HelpSection::HelpSection",
+      "to": "external::activeRef.current.scrollIntoView",
+      "kind": "calls",
+      "line": 11,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::HelpSection::HelpSection",
+      "to": "external::useEffect",
+      "kind": "calls",
+      "line": 9,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::HelpSection::HelpSection",
+      "to": "external::useEffect",
+      "kind": "reads",
+      "line": 5,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::HelpSection::HelpSection",
+      "to": "external::useRef",
+      "kind": "calls",
+      "line": 6,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::HelpSection::HelpSection",
+      "to": "external::useRef",
+      "kind": "reads",
+      "line": 5,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::PowerAnalyzer",
+      "to": "relay_sim::/src/components/PowerAnalyzer.tsx",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::PowerAnalyzer::PowerAnalyzer",
+      "to": "external::(Math.sqrt(3) * currentV * avgI * powerFactor).toFixed",
+      "kind": "calls",
+      "line": 6,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::PowerAnalyzer::PowerAnalyzer",
+      "to": "external::Math.sqrt",
+      "kind": "calls",
+      "line": 6,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::PowerAnalyzer::PowerAnalyzer",
+      "to": "external::avgI.toFixed",
+      "kind": "calls",
+      "line": 14,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::PowerAnalyzer::PowerAnalyzer",
+      "to": "external::fault.Iabc.reduce",
+      "kind": "calls",
+      "line": 3,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::SequencePhasor",
+      "to": "relay_sim::/src/components/SequencePhasor.tsx",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::TCCPlotter",
+      "to": "relay_sim::/src/components/TCCPlotter.tsx",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::TCCPlotter::generateCurvePoints",
+      "to": "external::Math.pow",
+      "kind": "calls",
+      "line": 7,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::components::TCCPlotter::generateCurvePoints",
+      "to": "external::points.push",
+      "kind": "calls",
+      "line": 8,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::data::Registry",
+      "to": "relay_sim::/src/data/Registry.ts",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::data::voltageLevels",
+      "to": "relay_sim::/src/data/voltageLevels.ts",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::data::voltageLevels::formatVoltage",
+      "to": "external::Math.round",
+      "kind": "calls",
+      "line": 25,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::lib::RelaySim",
+      "to": "relay_sim::/src/lib/RelaySim.ts",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::lib::RelaySim",
+      "to": "relay_sim::src::lib::faultRegistry",
+      "kind": "imports",
+      "line": 2,
+      "attrs": {
+        "bindings": [
+          "FAULT_REGISTRY"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::lib::RelaySim::RelaySim::run",
+      "to": "external::Math.abs",
+      "kind": "calls",
+      "line": 12,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::lib::RelaySim::RelaySim::run",
+      "to": "external::Math.max",
+      "kind": "calls",
+      "line": 7,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::lib::RelaySim::RelaySim::run",
+      "to": "external::Math.min",
+      "kind": "calls",
+      "line": 13,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::lib::RelaySim::RelaySim::run",
+      "to": "external::Math.pow",
+      "kind": "calls",
+      "line": 21,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::lib::faultRegistry",
+      "to": "relay_sim::/src/lib/faultRegistry.ts",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::main",
+      "to": "external::createRoot",
+      "kind": "calls",
+      "line": 5,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::main",
+      "to": "external::createRoot(document.getElementById('root')!).render",
+      "kind": "calls",
+      "line": 5,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::main",
+      "to": "external::document.getElementById",
+      "kind": "calls",
+      "line": 5,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::main",
+      "to": "external::react",
+      "kind": "imports",
+      "line": 1,
+      "attrs": {
+        "bindings": [
+          "StrictMode"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::main",
+      "to": "external::react-dom/client",
+      "kind": "imports",
+      "line": 2,
+      "attrs": {
+        "bindings": [
+          "createRoot"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::src::main",
+      "to": "relay_sim::/src/main.tsx",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::src::main",
+      "to": "relay_sim::src::App",
+      "kind": "imports",
+      "line": 3,
+      "attrs": {
+        "bindings": [
+          "App"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "external::Math.abs",
+      "kind": "calls",
+      "line": 29,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "external::Object.entries",
+      "kind": "calls",
+      "line": 83,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "external::Object.keys",
+      "kind": "calls",
+      "line": 82,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "external::Object.values",
+      "kind": "calls",
+      "line": 87,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "external::assert.deepEqual",
+      "kind": "calls",
+      "line": 20,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "external::assert.equal",
+      "kind": "calls",
+      "line": 21,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "external::assert.ok",
+      "kind": "calls",
+      "line": 29,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "external::node:assert/strict",
+      "kind": "imports",
+      "line": 2,
+      "attrs": {
+        "bindings": [
+          "assert"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "external::node:module",
+      "kind": "imports",
+      "line": 3,
+      "attrs": {
+        "bindings": [
+          "createRequire"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "external::node:test",
+      "kind": "imports",
+      "line": 1,
+      "attrs": {
+        "bindings": [
+          "test"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "external::sim.run",
+      "kind": "calls",
+      "line": 20,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "external::test",
+      "kind": "calls",
+      "line": 19,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "relay_sim::/tests/relay-sim.test.mjs",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "relay_sim::tests::relay-sim.test.mjs::balanced",
+      "kind": "calls",
+      "line": 20,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs",
+      "to": "relay_sim::tests::relay-sim.test.mjs::require",
+      "kind": "calls",
+      "line": 12,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs::atPickup",
+      "to": "relay_sim::tests::relay-sim.test.mjs::balanced",
+      "kind": "calls",
+      "line": 30,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs::atPickup",
+      "to": "relay_sim::tests::relay-sim.test.mjs::balanced",
+      "kind": "reads",
+      "line": 30,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs::atPickup",
+      "to": "relay_sim::tests::relay-sim.test.mjs::sim",
+      "kind": "reads",
+      "line": 30,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs::r",
+      "to": "relay_sim::tests::relay-sim.test.mjs::balanced",
+      "kind": "calls",
+      "line": 26,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs::r",
+      "to": "relay_sim::tests::relay-sim.test.mjs::balanced",
+      "kind": "reads",
+      "line": 26,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs::r",
+      "to": "relay_sim::tests::relay-sim.test.mjs::sim",
+      "kind": "reads",
+      "line": 26,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::tests::relay-sim.test.mjs::sim",
+      "to": "relay_sim::src::lib::RelaySim::RelaySim",
+      "kind": "reads",
+      "line": 16,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::upcoming_features",
+      "to": "relay_sim::/upcoming_features.md",
+      "kind": "contains",
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::vite.config",
+      "to": "external::@vitejs/plugin-react",
+      "kind": "imports",
+      "line": 2,
+      "attrs": {
+        "bindings": [
+          "react"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::vite.config",
+      "to": "external::defineConfig",
+      "kind": "calls",
+      "line": 4,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::vite.config",
+      "to": "external::react",
+      "kind": "calls",
+      "line": 5,
+      "attrs": {}
+    },
+    {
+      "from": "relay_sim::vite.config",
+      "to": "external::vite",
+      "kind": "imports",
+      "line": 1,
+      "attrs": {
+        "bindings": [
+          "defineConfig"
+        ]
+      }
+    },
+    {
+      "from": "relay_sim::vite.config",
+      "to": "relay_sim::/vite.config.ts",
+      "kind": "contains",
+      "attrs": {}
+    }
+  ],
+  "audit_head": "b8a8756e7eac65ed76d4865be9124797f218938f672bb43b976ba2a4cda4db76",
+  "audit_log": [
+    {
+      "seq": 0,
+      "ts": "1795021779",
+      "op": "genesis",
+      "payload": "{}",
+      "prev_hash": "GENESIS",
+      "hash": "c2f622597a412809710f46e3de6ba16a1f19cde809683f5d51df3fec306a382e"
+    },
+    {
+      "seq": 1,
+      "ts": "1795021779",
+      "op": "index_started",
+      "payload": "{\"package\":\"relay_sim\",\"repo\":\"/home/hatch/workspace/codetopo-work/PROFILES-GM-GATE-2026-11-18/work/relay_sim\"}",
+      "prev_hash": "c2f622597a412809710f46e3de6ba16a1f19cde809683f5d51df3fec306a382e",
+      "hash": "27248d8fdaa9db4fc6a5d2eb066b8b208a9f99e31d6f09b8286500d3e528936e"
+    },
+    {
+      "seq": 2,
+      "ts": "1795021779",
+      "op": "index_finished",
+      "payload": "{\"diagnostics\":62,\"edges\":240,\"files_failed\":0,\"files_indexed\":27,\"nodes\":177}",
+      "prev_hash": "27248d8fdaa9db4fc6a5d2eb066b8b208a9f99e31d6f09b8286500d3e528936e",
+      "hash": "b8a8756e7eac65ed76d4865be9124797f218938f672bb43b976ba2a4cda4db76"
+    }
+  ],
+  "diagnostics": [
+    {
+      "MultiDefinition": {
+        "symbol": "relay_sim::scripts::bump-version.mjs::src",
+        "locations": [
+          {
+            "file": "scripts/bump-version.mjs",
+            "line": 22
+          },
+          {
+            "file": "scripts/bump-version.mjs",
+            "line": 32
+          }
+        ]
+      }
+    },
+    {
+      "MultiDefinition": {
+        "symbol": "relay_sim::scripts::bump-version.mjs::out",
+        "locations": [
+          {
+            "file": "scripts/bump-version.mjs",
+            "line": 23
+          },
+          {
+            "file": "scripts/bump-version.mjs",
+            "line": 34
+          }
+        ]
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::eslint.config",
+        "target": "defineConfig",
+        "line": 8
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::eslint.config",
+        "target": "globalIgnores",
+        "line": 9
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::scripts::bump-version.mjs",
+        "target": "/^\\d+\\.\\d+\\.\\d+$/.test",
+        "line": 6
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::scripts::bump-version.mjs",
+        "target": "JSON.stringify",
+        "line": 16
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::scripts::bump-version.mjs",
+        "target": "console.error",
+        "line": 7
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::scripts::bump-version.mjs",
+        "target": "console.log",
+        "line": 41
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::scripts::bump-version.mjs",
+        "target": "existsSync",
+        "line": 21
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::scripts::bump-version.mjs",
+        "target": "log.push",
+        "line": 17
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::scripts::bump-version.mjs",
+        "target": "process.exit",
+        "line": 8
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::scripts::bump-version.mjs",
+        "target": "src.includes",
+        "line": 33
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::scripts::bump-version.mjs",
+        "target": "writeFileSync",
+        "line": 16
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::scripts::bump-version.mjs::pkg",
+        "target": "readFileSync",
+        "line": 13
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::scripts::bump-version.mjs::today",
+        "target": "Date",
+        "line": 31
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::scripts::bump-version.mjs::today",
+        "target": "new Date().toISOString",
+        "line": 31
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "(Math.sqrt(3) * nominalV * avgI * powerFactor).toFixed",
+        "line": 40
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "(avgI/1.5).toFixed",
+        "line": 106
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "Math.abs",
+        "line": 45
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "Math.max",
+        "line": 44
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "Math.min",
+        "line": 44
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "Math.sqrt",
+        "line": 40
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "Object.values",
+        "line": 61
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "Object.values(EQUIPMENT_TYPES).map",
+        "line": 61
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "activeTab.toUpperCase",
+        "line": 34
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "avgI.toFixed",
+        "line": 132
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "fault.Iabc.reduce",
+        "line": 38
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "result.time.toFixed",
+        "line": 106
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "setActiveTab",
+        "line": 64
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "setShowHelp",
+        "line": 64
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "setVoltages",
+        "line": 155
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "sim.run",
+        "line": 32
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "useMemo",
+        "line": 31
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::App::App",
+        "target": "useState",
+        "line": 20
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+        "target": "String.fromCharCode",
+        "line": 73
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+        "target": "availableRelays.map",
+        "line": 113
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+        "target": "currentFault.Iabc.map",
+        "line": 69
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+        "target": "mag.toFixed",
+        "line": 76
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+        "target": "onUpdate",
+        "line": 26
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+        "target": "onVoltageChange",
+        "line": 39
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+        "target": "updatePhase",
+        "line": 86
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::ControlPanel::ControlPanel",
+        "target": "voltageLevels.map",
+        "line": 52
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::EquipmentStudy::EquipmentStudy",
+        "target": "activeFault?.name.toLowerCase",
+        "line": 137
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::EquipmentStudy::renderEquipment",
+        "target": "['87T', '24', '63'].includes",
+        "line": 14
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::FaultSelector::FaultSelector",
+        "target": "Object.values(FAULT_REGISTRY).map",
+        "line": 31
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::FaultSelector::FaultSelector",
+        "target": "onSelectFault",
+        "line": 18
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::HelpSection::HelpSection",
+        "target": "activeRef.current.scrollIntoView",
+        "line": 11
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::HelpSection::HelpSection",
+        "target": "useEffect",
+        "line": 9
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::HelpSection::HelpSection",
+        "target": "useRef",
+        "line": 6
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::PowerAnalyzer::PowerAnalyzer",
+        "target": "(Math.sqrt(3) * currentV * avgI * powerFactor).toFixed",
+        "line": 6
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::TCCPlotter::generateCurvePoints",
+        "target": "Math.pow",
+        "line": 7
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::components::TCCPlotter::generateCurvePoints",
+        "target": "points.push",
+        "line": 8
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::data::voltageLevels::formatVoltage",
+        "target": "Math.round",
+        "line": 25
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::main",
+        "target": "createRoot",
+        "line": 5
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::main",
+        "target": "createRoot(document.getElementById('root')!).render",
+        "line": 5
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::src::main",
+        "target": "document.getElementById",
+        "line": 5
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::tests::relay-sim.test.mjs",
+        "target": "Object.entries",
+        "line": 83
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::tests::relay-sim.test.mjs",
+        "target": "Object.keys",
+        "line": 82
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::tests::relay-sim.test.mjs",
+        "target": "assert.deepEqual",
+        "line": 20
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::tests::relay-sim.test.mjs",
+        "target": "assert.equal",
+        "line": 21
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::tests::relay-sim.test.mjs",
+        "target": "assert.ok",
+        "line": 29
+      }
+    },
+    {
+      "UnresolvedCall": {
+        "from": "relay_sim::tests::relay-sim.test.mjs",
+        "target": "test",
+        "line": 19
+      }
+    }
+  ]
+}
